@@ -14,7 +14,7 @@ O foco desta spec é:
 
 # Contexto
 
-Após o registro contínuo de eventos, o tutor precisa conseguir visualizar o histórico acumulado.
+Após o registro contínuo de eventos o tutor precisa conseguir visualizar o histórico acumulado.
 
 Exemplos:
 
