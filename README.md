@@ -1,3 +1,7 @@
+![Braqui Banner](docs/assets/banner-braqui.png)
+
+![Go](https://img.shields.io/badge/Go-Latest-blue) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791) ![Docker](https://img.shields.io/badge/Docker-Container-2496ED) ![Telegram](https://img.shields.io/badge/Telegram-Bot%20API-0088cc) ![Gemini](https://img.shields.io/badge/Gemini-AI-white) ![OpenWeather](https://img.shields.io/badge/OpenWeather-API-orange)
+
 # 🐶 Braqui
 
 **Saúde inteligente para cães braquicefálicos.**
