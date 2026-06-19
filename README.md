@@ -1,6 +1,6 @@
 #![Braqui Banner](docs/assets/banner-braqui.png)
 
-![Go](https://img.shields.io/badge/Go-Latest-blue) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791) ![Docker](https://img.shields.io/badge/Docker-Container-2496ED) ![Telegram](https://img.shields.io/badge/Telegram-Bot%20API-0088cc) ![Gemini](https://img.shields.io/badge/Gemini-AI-white) ![OpenWeather](https://img.shields.io/badge/OpenWeather-API-orange)
+![Go](https://img.shields.io/badge/Go-Latest-blue) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791) ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED) ![Docker Compose](https://img.shields.io/badge/Docker%20Compose-Infrastructure-2496ED) ![GitHub](https://img.shields.io/badge/GitHub-Repository-181717) ![Telegram](https://img.shields.io/badge/Telegram-Bot%20API-0088cc) ![OpenCode](https://img.shields.io/badge/OpenCode-AI-white) ![OpenWeather](https://img.shields.io/badge/OpenWeather-API-orange) ![Event-Driven](https://img.shields.io/badge/Event--Driven-Architecture-brightgreen) ![Conversational](https://img.shields.io/badge/Conversational-Interface-blueviolet) ![Modular](https://img.shields.io/badge/Modular-Monorepo-success)
 
 # 🐶 Braqui
 
