@@ -1,4 +1,4 @@
-![Braqui Banner](docs/assets/banner-braqui.png)
+#![Braqui Banner](docs/assets/banner-braqui.png)
 
 ![Go](https://img.shields.io/badge/Go-Latest-blue) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791) ![Docker](https://img.shields.io/badge/Docker-Container-2496ED) ![Telegram](https://img.shields.io/badge/Telegram-Bot%20API-0088cc) ![Gemini](https://img.shields.io/badge/Gemini-AI-white) ![OpenWeather](https://img.shields.io/badge/OpenWeather-API-orange)
 
@@ -12,7 +12,7 @@ O objetivo é ajudar tutores a registrarem eventos importantes da rotina do pet,
 
 ---
 
-# 🎯 Problema
+## 🎯 Problema
 
 Cães braquicefálicos possuem necessidades específicas relacionadas principalmente a:
 
@@ -38,7 +38,7 @@ O Braqui nasce para resolver esse problema.
 
 ---
 
-# 🚀 MVP
+## 🚀 MVP
 
 O MVP possui foco em:
 
@@ -55,7 +55,7 @@ Tudo através de uma experiência conversacional no Telegram.
 
 ---
 
-# 🏗️ Arquitetura
+## 🏗️ Arquitetura
 
 O projeto utiliza arquitetura modular organizada em monorepo.
 
@@ -78,22 +78,22 @@ As aplicações `dashboard` e `admin` permanecem previstas para futuras evoluç�
 
 ---
 
-# ⚙️ Stack Tecnológica
+## ⚙️ Stack Tecnológica
 
-## Backend
+### Backend
 
 * Go
 * PostgreSQL
 * Docker
 * Docker Compose
 
-## Integrações
+### Integrações
 
 * Telegram Bot API
 * Google Gemini
 * OpenWeather
 
-## Infraestrutura
+### Infraestrutura
 
 * Docker
 * GitHub
@@ -101,7 +101,7 @@ As aplicações `dashboard` e `admin` permanecem previstas para futuras evoluç�
 
 ---
 
-# 🐳 Ambiente Local
+## 🐳 Ambiente Local
 
 Subir ambiente:
 
@@ -123,105 +123,45 @@ docker compose up --build
 
 ---
 
-# 📚 Documentação
+## 🤖 Desenvolvimento Assistido por IA
 
-Toda a documentação do projeto encontra-se na pasta:
+Este projeto foi construído utilizando práticas modernas de **AI-Assisted Software Development**.
 
-```text
-/docs
-```
+|Categoria|Ferramenta|
+|---|---|
+|IDE/Agent|OpenCode|
+|Modelo Principal|Claude Sonnet 4|
+|Apoio Estratégico|ChatGPT (GPT-5.5)|
+|Metodologia|Spec-Driven Development (SDD)|
 
-Arquivos principais:
+O desenvolvimento foi conduzido a partir de especificações formais (Specs), seguindo uma abordagem **SDD**, onde cada funcionalidade é planejada, documentada e validada antes da implementação.
 
-```text
-docs/
-├── vision.md
-├── architecture.md
-├── roadmap.md
-├── playbook.md
-└── specs/
-```
+Foram produzidos documentos de visão, arquitetura, roadmap e mais de 20 especificações funcionais que serviram como base para a construção do sistema.
 
----
+### 📋 Especificações do Projeto
 
-# 🧠 Spec Driven Development (SDD)
+As funcionalidades do Braqui foram planejadas e organizadas através de documentos de especificação localizados em `/docs/specs`, contendo:
 
-O Braqui está sendo desenvolvido utilizando a abordagem **Spec Driven Development (SDD)**.
+- Objetivos da funcionalidade
+- Regras de negócio
+- Critérios de aceitação
+- Fluxos de uso
+- Checklist de implementação
 
-Ao invés de implementar funcionalidades diretamente a partir de ideias ou prompts extensos, todo o projeto foi decomposto em especificações independentes e rastreáveis.
+### 📚 Documentação
 
-Cada funcionalidade possui:
+- `docs/vision.md`
+- `docs/architecture.md`
+- `docs/roadmap.md`
+- `docs/specs/`
 
-* objetivo;
-* contexto;
-* escopo;
-* critérios de aceite;
-* checklist de implementação.
-
-Exemplo:
-
-```text
-SPEC-001-bootstrap-e-estrutura-inicial-do-projeto.md
-SPEC-002-configuracao-e-gerenciamento-de-ambiente.md
-SPEC-003-deploy-e-infraestrutura-inicial.md
-...
-SPEC-023-resumo-semanal.md
-```
+A IA foi utilizada para auxiliar na definição de arquitetura, refinamento de requisitos, geração de documentação técnica, criação de planos de implementação e desenvolvimento de código, sempre sob revisão humana.
 
 ---
 
-# 🤖 IA-Assisted Development
+## 📋 Roadmap Inicial
 
-O desenvolvimento do Braqui utiliza Inteligência Artificial como ferramenta de engenharia de software.
-
-O fluxo adotado é:
-
-```text
-Vision
-    ↓
-Architecture
-    ↓
-Roadmap
-    ↓
-Specs
-    ↓
-Implementação
-    ↓
-Checklist da Spec
-```
-
-Cada implementação deve:
-
-1. Ler a documentação.
-2. Implementar apenas uma Spec por vez.
-3. Atualizar o checklist da Spec.
-4. Executar testes.
-5. Registrar pendências.
-
----
-
-# 💻 OpenCode
-
-O projeto foi estruturado especificamente para funcionar bem com ferramentas de IA como:
-
-* OpenCode
-* Cursor
-* Windsurf
-* Kiro
-* GitHub Copilot
-
-A estratégia adotada evita prompts gigantes e prioriza:
-
-* contexto persistente;
-* especificações pequenas;
-* implementação incremental;
-* validação contínua.
-
----
-
-# 📋 Roadmap Inicial
-
-## Fundação
+### Fundação
 
 * Bootstrap
 * Configuração
@@ -229,7 +169,7 @@ A estratégia adotada evita prompts gigantes e prioriza:
 * Docker
 * Persistência
 
-## Plataforma
+### Plataforma
 
 * Telegram
 * Onboarding
@@ -237,27 +177,27 @@ A estratégia adotada evita prompts gigantes e prioriza:
 * Estado Conversacional
 * Router
 
-## Inteligência
+### Inteligência
 
 * Parser Local
 * IA
 * Registro de Eventos
 * Timeline
 
-## Automação
+### Automação
 
 * Scheduler
 * Lembretes
 * Alertas Climáticos
 
-## Valor ao Usuário
+### Valor ao Usuário
 
 * Insights
 * Resumo Semanal
 
 ---
 
-# 🔒 Status
+## 🔒 Status
 
 Projeto em desenvolvimento.
 
@@ -265,6 +205,6 @@ Atualmente em fase de implementação do MVP.
 
 ---
 
-# 📄 Licença
+## 📄 Licença
 
 MIT
