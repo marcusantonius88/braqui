@@ -87,22 +87,24 @@ Nunca:
 
 # Status Atual do Projeto
 
-Neste momento o projeto encontra-se em fase de bootstrap.
+SPEC-001 (bootstrap), SPEC-002 (config) e SPEC-003 (deploy/infra) implementadas.
 
-Atualmente existem apenas documentos.
+Existe:
+- estrutura de diretórios (`apps/api/`);
+- `go.mod` com module path `github.com/marcusantonius88/braqui/apps/api`;
+- `main.go` com config loading, HTTP server, healthcheck `/health`;
+- package `config` em `internal/infra/config/` com struct, loader, validação, parser `.env` próprio;
+- `.env.example`;
+- health handler em `internal/interfaces/health/`;
+- Dockerfile multi-stage (`golang:1.23-alpine` → `alpine:3.20`);
+- CI workflow (`.github/workflows/ci.yml`);
+- testes unitários do loader/validação.
 
 Ainda NÃO existem:
-
-- código Go;
-- go.mod;
-- main.go;
-- Dockerfile;
-- docker-compose.yml;
+- entidades, interfaces ou contratos de domínio;
+- `docker-compose.yml`;
 - migrations;
-- testes;
-- CI/CD.
-
-Toda implementação deve partir dessa premissa.
+- deploy automático (provider não configurado).
 
 ---
 
