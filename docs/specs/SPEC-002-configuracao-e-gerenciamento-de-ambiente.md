@@ -395,54 +395,54 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Package config criado
-- [ ] Estrutura centralizada de configuração criada
-- [ ] Config struct implementada
-- [ ] Loader de variáveis implementado
+- [x] Package config criado
+- [x] Estrutura centralizada de configuração criada
+- [x] Config struct implementada
+- [x] Loader de variáveis implementado
 
 ---
 
 ## Variáveis de Ambiente
 
-- [ ] Suporte a `.env` implementado
-- [ ] Suporte a `.env.example` implementado
-- [ ] Variáveis obrigatórias definidas
-- [ ] Variáveis opcionais definidas
+- [x] Suporte a `.env` implementado (parser próprio, sem dependências)
+- [x] Suporte a `.env.example` implementado
+- [x] Variáveis obrigatórias definidas (TELEGRAM_BOT_TOKEN, DATABASE_URL, APP_ENV)
+- [x] Variáveis opcionais definidas (GEMINI_API_KEY, OPENWEATHER_API_KEY, SCHEDULER_ENABLED, PORT)
 
 ---
 
 ## Validação
 
-- [ ] Validação de variáveis obrigatórias implementada
-- [ ] Fail fast na inicialização implementado
-- [ ] Mensagens de erro amigáveis implementadas
+- [x] Validação de variáveis obrigatórias implementada
+- [x] Fail fast na inicialização implementado
+- [x] Mensagens de erro amigáveis implementadas
 
 ---
 
 ## Segurança
 
-- [ ] Secrets removidos dos logs
-- [ ] Tokens protegidos contra exposição
-- [ ] `.env` adicionado ao `.gitignore`
+- [x] Secrets removidos dos logs (apenas `starting braqui in X mode` é logado)
+- [x] Tokens protegidos contra exposição
+- [x] `.env` adicionado ao `.gitignore`
 
 ---
 
 ## Ambientes
 
-- [ ] Suporte a ambiente local implementado
-- [ ] Suporte a development implementado
-- [ ] Suporte a production implementado
+- [x] Suporte a ambiente local implementado
+- [x] Suporte a development implementado
+- [x] Suporte a production implementado
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de inicialização implementado
-- [ ] Log de ambiente atual implementado
+- [x] Log de inicialização implementado
+- [x] Log de ambiente atual implementado
 
 ---
 
 ## Testes
 
-- [ ] Testes unitários do loader implementados
-- [ ] Testes de validação implementados
+- [x] Testes unitários do loader implementados
+- [x] Testes de validação implementados

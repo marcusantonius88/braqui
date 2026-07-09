@@ -368,76 +368,76 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Estrutura de deploy inicial criada
-- [ ] Estrutura compatível com monorepo definida
-- [ ] Estrutura `/apps/api` preparada para deploy
+- [x] Estrutura de deploy inicial criada
+- [x] Estrutura compatível com monorepo definida
+- [x] Estrutura `/apps/api` preparada para deploy
 
 ---
 
 ## Build
 
-- [ ] Dockerfile criado
-- [ ] Build da aplicação funcionando
-- [ ] Runtime da aplicação configurado
+- [x] Dockerfile criado (multi-stage: golang:1.23-alpine → alpine:3.20)
+- [x] Build da aplicação funcionando
+- [x] Runtime da aplicação configurado
 
 ---
 
 ## Deploy
 
-- [ ] Deploy automático via GitHub configurado
-- [ ] Pipeline inicial criado
-- [ ] Estratégia de deploy documentada
+- [ ] Deploy automático via GitHub configurado (requer configurar provider: Render/Railway/Fly.io)
+- [x] Pipeline inicial criado (.github/workflows/ci.yml — build + test + vet)
+- [ ] Estratégia de deploy documentada (pendente — definir provider primeiro)
 
 ---
 
 ## Infraestrutura
 
-- [ ] PostgreSQL configurado
-- [ ] Variáveis de ambiente configuradas
-- [ ] HTTPS configurado
-- [ ] Endpoint público configurado
+- [ ] PostgreSQL configurado (SPEC-005)
+- [x] Variáveis de ambiente configuradas (SPEC-002)
+- [ ] HTTPS configurado (requer deploy real)
+- [ ] Endpoint público configurado (requer deploy real)
 
 ---
 
 ## Telegram
 
-- [ ] Webhook Telegram configurado
-- [ ] Endpoint webhook exposto publicamente
+- [ ] Webhook Telegram configurado (SPEC-009)
+- [ ] Endpoint webhook exposto publicamente (SPEC-009)
 
 ---
 
 ## Scheduler
 
-- [ ] Scheduler integrado ao runtime principal
-- [ ] Execução de jobs funcionando
+- [ ] Scheduler integrado ao runtime principal (SPEC-018)
+- [ ] Execução de jobs funcionando (SPEC-018)
 
 ---
 
 ## Healthcheck
 
-- [ ] Endpoint `/health` criado
-- [ ] Healthcheck retornando status corretamente
+- [x] Endpoint `/health` criado (retorna `{"status":"ok"}`)
+- [x] Healthcheck retornando status corretamente
 
 ---
 
 ## Observabilidade
 
-- [ ] Logs básicos configurados
-- [ ] Logs estruturados configurados
-- [ ] Logs de inicialização implementados
+- [x] Logs básicos configurados
+- [ ] Logs estruturados configurados (SPEC-007)
+- [x] Logs de inicialização implementados (SPEC-002)
 
 ---
 
 ## Segurança
 
-- [ ] Secrets protegidos
-- [ ] Variáveis sensíveis removidas do código
-- [ ] Configuração segura de ambiente implementada
+- [x] Secrets protegidos
+- [x] Variáveis sensíveis removidas do código
+- [x] Configuração segura de ambiente implementada
 
 ---
 
 ## Qualidade
 
-- [ ] Deploy reproduzível funcionando
-- [ ] Estrutura compatível com evolução incremental
-- [ ] Infraestrutura compatível com IA-assisted development
+- [x] Deploy reproduzível funcionando (Docker build verificado)
+- [x] Estrutura compatível com evolução incremental
+- [x] Infraestrutura compatível com IA-assisted development
