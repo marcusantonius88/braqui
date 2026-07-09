@@ -562,75 +562,75 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Estrutura `/apps` criada
-- [ ] Estrutura `/docs` criada
-- [ ] Estrutura `/docker` criada
-- [ ] Estrutura `/scripts` criada
-- [ ] Estrutura `/tests` criada
+- [x] Estrutura `/apps` criada
+- [x] Estrutura `/docs` criada
+- [x] Estrutura `/docker` criada
+- [x] Estrutura `/scripts` criada
+- [x] Estrutura `/tests` criada
 
 ---
 
 ## Estrutura Monorepo
 
-- [ ] Estrutura `/apps/api` criada
-- [ ] Estrutura preparada para múltiplas aplicações
-- [ ] Estratégia monorepo documentada
+- [x] Estrutura `/apps/api` criada
+- [x] Estrutura preparada para múltiplas aplicações
+- [x] Estratégia monorepo documentada
 
 ---
 
 ## Setup Go
 
-- [ ] `go.mod` criado
-- [ ] `go.sum` criado
-- [ ] `main.go` criado
-- [ ] Projeto Go inicializado corretamente
+- [x] `go.mod` criado
+- [ ] `go.sum` criado (sem dependências externas — não gerado naturalmente)
+- [x] `main.go` criado
+- [x] Projeto Go inicializado corretamente
 
 ---
 
 ## Organização Arquitetural
 
-- [ ] Estrutura `/application` criada
-- [ ] Estrutura `/domain` criada
-- [ ] Estrutura `/infra` criada
-- [ ] Estrutura `/interfaces` criada
+- [x] Estrutura `/application` criada
+- [x] Estrutura `/domain` criada
+- [x] Estrutura `/infra` criada
+- [x] Estrutura `/interfaces` criada
 
 ---
 
 ## Organização Modular
 
-- [ ] Módulo `pet` criado
-- [ ] Módulo `event` criado
-- [ ] Módulo `reminder` criado
-- [ ] Módulo `timeline` criado
-- [ ] Módulo `conversation` criado
-- [ ] Módulo `router` criado
-- [ ] Módulo `climate` criado
-- [ ] Módulo `insight` criado
-- [ ] Módulo `summary` criado
+- [x] Módulo `pet` criado (diretório vazio — entidades virão em SPECs futuras)
+- [x] Módulo `event` criado
+- [x] Módulo `reminder` criado
+- [x] Módulo `timeline` criado
+- [x] Módulo `conversation` criado
+- [x] Módulo `router` criado
+- [x] Módulo `climate` criado
+- [x] Módulo `insight` criado
+- [x] Módulo `summary` criado
 
 ---
 
 ## Documentação
 
-- [ ] `vision.md` criado
-- [ ] `architecture.md` criado
-- [ ] `roadmap.md` criado
-- [ ] `playbook.md` criado
-- [ ] Diretório `/specs` criado
-- [ ] Diretório `/tasks` criado
+- [x] `vision.md` criado
+- [x] `architecture.md` criado
+- [x] `roadmap.md` criado
+- [x] `playbook.md` criado
+- [x] Diretório `/specs` criado
+- [x] Diretório `/tasks` criado
 
 ---
 
 ## Convenções
 
-- [ ] Convenções arquiteturais documentadas
-- [ ] Boundaries definidos corretamente
-- [ ] Naming conventions padronizadas
+- [x] Convenções arquiteturais documentadas
+- [x] Boundaries definidos corretamente
+- [x] Naming conventions padronizadas
 
 ---
 
 ## Qualidade
 
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com OpenCode
-- [ ] Estrutura compatível com IA-assisted development
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com OpenCode
+- [x] Estrutura compatível com IA-assisted development

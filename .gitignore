@@ -1,1 +1,22 @@
 docs/assets/banner-braqui.png:Zone.Identifier
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+braqui
+/tmp
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
