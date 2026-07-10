@@ -87,7 +87,7 @@ Nunca:
 
 # Status Atual do Projeto
 
-SPEC-001 (bootstrap), SPEC-002 (config) e SPEC-003 (deploy/infra) implementadas.
+SPEC-001 (bootstrap), SPEC-002 (config), SPEC-003 (deploy/infra) e SPEC-004 (containerização) implementadas.
 
 Existe:
 - estrutura de diretórios (`apps/api/`);
@@ -97,12 +97,12 @@ Existe:
 - `.env.example`;
 - health handler em `internal/interfaces/health/`;
 - Dockerfile multi-stage (`golang:1.23-alpine` → `alpine:3.20`);
+- `docker-compose.yml` (api + postgres);
 - CI workflow (`.github/workflows/ci.yml`);
 - testes unitários do loader/validação.
 
 Ainda NÃO existem:
 - entidades, interfaces ou contratos de domínio;
-- `docker-compose.yml`;
 - migrations;
 - deploy automático (provider não configurado).
 

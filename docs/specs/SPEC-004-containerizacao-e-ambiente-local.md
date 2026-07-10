@@ -497,92 +497,92 @@ Fora do MVP:
 
 ## Estrutura Docker
 
-- [ ] Dockerfile criado em `/apps/api`
-- [ ] Estrutura `/docker` criada
-- [ ] Estrutura `/docker/postgres` criada
-- [ ] docker-compose.yml criado
+- [x] Dockerfile criado em `/apps/api` (SPEC-003)
+- [x] Estrutura `/docker` criada
+- [x] Estrutura `/docker/postgres` criada (com init.sql — extensão uuid-ossp)
+- [x] docker-compose.yml criado
 
 ---
 
 ## Build
 
-- [ ] Multi-stage build implementado
-- [ ] Build local funcionando
-- [ ] Runtime da aplicação configurado
+- [x] Multi-stage build implementado (SPEC-003)
+- [x] Build local funcionando (SPEC-003)
+- [x] Runtime da aplicação configurado (SPEC-003)
 
 ---
 
 ## Ambiente Local
 
-- [ ] Ambiente completo sobe com `docker compose up`
-- [ ] API inicia corretamente
-- [ ] PostgreSQL inicia corretamente
+- [x] Ambiente completo sobe com `docker compose up`
+- [x] API inicia corretamente
+- [x] PostgreSQL inicia corretamente
 
 ---
 
 ## Banco de Dados
 
-- [ ] Container PostgreSQL configurado
-- [ ] Volume persistente configurado
-- [ ] Persistência validada
+- [x] Container PostgreSQL configurado
+- [x] Volume persistente configurado
+- [ ] Persistência validada (requer SPEC-005 — operações de banco)
 
 ---
 
 ## Rede
 
-- [ ] Rede interna Docker configurada
-- [ ] Comunicação API ↔ PostgreSQL funcionando
+- [x] Rede interna Docker configurada (bridge `braqui`)
+- [x] Comunicação API ↔ PostgreSQL funcionando (ambos na mesma rede)
 
 ---
 
 ## Variáveis de Ambiente
 
-- [ ] Integração com `.env` implementada
-- [ ] Variáveis propagadas para containers
-- [ ] `.env.example` documentado
+- [x] Integração com `.env` implementada (Docker Compose carrega root `.env`)
+- [x] Variáveis propagadas para containers
+- [x] `.env.example` documentado (SPEC-002)
 
 ---
 
 ## Healthcheck
 
-- [ ] Healthcheck da API configurado
-- [ ] Healthcheck do PostgreSQL configurado
+- [x] Healthcheck da API configurado (SPEC-003 — Dockerfile HEALTHCHECK)
+- [x] Healthcheck do PostgreSQL configurado (pg_isready)
 
 ---
 
 ## Logs
 
-- [ ] Logs acessíveis via Docker
-- [ ] Logs de startup implementados
-- [ ] Logs de erro implementados
+- [x] Logs acessíveis via Docker
+- [x] Logs de startup implementados
+- [x] Logs de erro implementados
 
 ---
 
 ## Migrações
 
-- [ ] Estratégia de migrations definida
-- [ ] Execução local de migrations funcionando
+- [ ] Estratégia de migrations definida (pendente — manual por enquanto)
+- [ ] Execução local de migrations funcionando (pendente — manual)
 
 ---
 
 ## Segurança
 
-- [ ] `.env` ignorado pelo Git
-- [ ] Secrets não expostos em imagens
-- [ ] Secrets não expostos nos logs
+- [x] `.env` ignorado pelo Git
+- [x] Secrets não expostos em imagens
+- [x] Secrets não expostos nos logs
 
 ---
 
 ## Developer Experience
 
-- [ ] Setup documentado
-- [ ] Ambiente reproduzível validado
-- [ ] Workflow compatível com OpenCode
+- [ ] Setup documentado (documentação de setup ainda não escrita)
+- [x] Ambiente reproduzível validado
+- [x] Workflow compatível com OpenCode
 
 ---
 
 ## Qualidade
 
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com evolução futura
-- [ ] Estrutura compatível com IA-assisted development
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com evolução futura
+- [x] Estrutura compatível com IA-assisted development

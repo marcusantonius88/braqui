@@ -1,0 +1,46 @@
+services:
+  api:
+    build:
+      context: apps/api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      APP_ENV: local
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/braqui?sslmode=disable
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      OPENWEATHER_API_KEY: ${OPENWEATHER_API_KEY}
+      SCHEDULER_ENABLED: "true"
+      PORT: "8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - braqui
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: braqui
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - braqui
+
+volumes:
+  postgres_data:
+
+networks:
+  braqui:
+    driver: bridge
