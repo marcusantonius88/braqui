@@ -14,6 +14,7 @@ RUN apk --no-cache add ca-certificates wget
 
 WORKDIR /app
 COPY --from=builder /build/server .
+COPY --from=builder /build/internal/infra/postgres/migrations ./internal/infra/postgres/migrations
 
 EXPOSE 8080
 

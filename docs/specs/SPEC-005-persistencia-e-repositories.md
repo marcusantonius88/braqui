@@ -384,89 +384,89 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Estrutura `/infra/postgres` criada
-- [ ] Estrutura `/repositories` criada
-- [ ] Estrutura `/migrations` criada
+- [x] Estrutura `/infra/postgres` criada
+- [x] Estrutura `/repositories` criada
+- [x] Estrutura `/migrations` criada
 
 ---
 
 ## Banco de Dados
 
-- [ ] Conexão PostgreSQL implementada
-- [ ] Pool de conexões configurado
-- [ ] Healthcheck de banco implementado
+- [x] Conexão PostgreSQL implementada
+- [x] Pool de conexões configurado
+- [x] Healthcheck de banco implementado
 
 ---
 
 ## Migrations
 
-- [ ] Ferramenta de migrations definida
-- [ ] Migration inicial criada
-- [ ] Execução de migrations funcionando
-- [ ] Recriação completa do banco validada
+- [x] Ferramenta de migrations definida
+- [x] Migration inicial criada
+- [x] Execução de migrations funcionando
+- [x] Recriação completa do banco validada
 
 ---
 
 ## Entidades
 
-- [ ] Entidade User criada
-- [ ] Entidade Pet criada
-- [ ] Entidade Event criada
-- [ ] Entidade Reminder criada
-- [ ] Entidade ConversationState criada
+- [x] Entidade User criada
+- [x] Entidade Pet criada
+- [x] Entidade Event criada
+- [x] Entidade Reminder criada
+- [x] Entidade ConversationState criada
 
 ---
 
 ## Repositories
 
-- [ ] Interface UserRepository criada
-- [ ] Interface PetRepository criada
-- [ ] Interface EventRepository criada
-- [ ] Interface ReminderRepository criada
-- [ ] Interface ConversationStateRepository criada
+- [x] Interface UserRepository criada
+- [x] Interface PetRepository criada
+- [x] Interface EventRepository criada
+- [x] Interface ReminderRepository criada
+- [x] Interface ConversationStateRepository criada
 
 ---
 
 ## Implementações PostgreSQL
 
-- [ ] PostgreSQLUserRepository implementado
-- [ ] PostgreSQLPetRepository implementado
-- [ ] PostgreSQLEventRepository implementado
-- [ ] PostgreSQLReminderRepository implementado
-- [ ] PostgreSQLConversationStateRepository implementado
+- [x] PostgreSQLUserRepository implementado
+- [x] PostgreSQLPetRepository implementado
+- [x] PostgreSQLEventRepository implementado
+- [x] PostgreSQLReminderRepository implementado
+- [x] PostgreSQLConversationStateRepository implementado
 
 ---
 
 ## Arquitetura
 
-- [ ] Domínio desacoplado da persistência
+- [x] Domínio desacoplado da persistência
 - [ ] Use cases utilizando interfaces
-- [ ] Infra implementando repositories
-- [ ] SQL isolado na camada infra
+- [x] Infra implementando repositories
+- [x] SQL isolado na camada infra
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Erros de persistência padronizados
-- [ ] Erro "not found" implementado
-- [ ] Logs de erro implementados
+- [x] Erros de persistência padronizados
+- [x] Erro "not found" implementado
+- [x] Logs de erro implementados
 
 ---
 
 ## Observabilidade
 
-- [ ] Logs de conexão implementados
-- [ ] Logs de erro implementados
-- [ ] Troubleshooting básico implementado
+- [x] Logs de conexão implementados
+- [x] Logs de erro implementados
+- [x] Troubleshooting básico implementado
 
 ---
 
 ## Testes
 
-- [ ] Mocks dos repositories criados
+- [x] Mocks dos repositories criados
 - [ ] Testes unitários dos repositories implementados
-- [ ] Testes de integração PostgreSQL implementados
+- [x] Testes de integração PostgreSQL implementados
 
 ---
 
