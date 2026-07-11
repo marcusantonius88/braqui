@@ -330,69 +330,69 @@ Fora do MVP:
 
 ## Endpoint
 
-- [ ] Endpoint `GET /health` criado
-- [ ] Handler de healthcheck implementado
-- [ ] Rota registrada
+- [x] Endpoint `GET /health` criado
+- [x] Handler de healthcheck implementado
+- [x] Rota registrada
 
 ---
 
 ## Resposta
 
-- [ ] Resposta JSON padronizada implementada
-- [ ] Status HTTP correto implementado
-- [ ] Estrutura de resposta documentada
+- [x] Resposta JSON padronizada implementada
+- [x] Status HTTP correto implementado
+- [x] Estrutura de resposta documentada
 
 ---
 
 ## Inicialização
 
-- [ ] Log de startup implementado
-- [ ] Log de ambiente implementado
-- [ ] Log de inicialização de dependências implementado
+- [x] Log de startup implementado
+- [x] Log de ambiente implementado
+- [x] Log de inicialização de dependências implementado
 
 ---
 
 ## Diagnóstico
 
-- [ ] Mensagens de erro amigáveis implementadas
-- [ ] Troubleshooting básico implementado
-- [ ] Logs operacionais implementados
+- [x] Mensagens de erro amigáveis implementadas
+- [x] Troubleshooting básico implementado
+- [x] Logs operacionais implementados
 
 ---
 
 ## Banco de Dados
 
-- [ ] Verificação básica de conexão implementada
-- [ ] Healthcheck de PostgreSQL preparado para evolução futura
+- [x] Verificação básica de conexão implementada
+- [x] Healthcheck de PostgreSQL preparado para evolução futura
 
 ---
 
 ## Segurança
 
-- [ ] Secrets removidos dos logs
-- [ ] Credenciais protegidas
-- [ ] Payloads sensíveis não registrados
+- [x] Secrets removidos dos logs
+- [x] Credenciais protegidas
+- [x] Payloads sensíveis não registrados
 
 ---
 
 ## Docker e Deploy
 
-- [ ] Endpoint compatível com Docker Healthcheck
-- [ ] Endpoint compatível com provedores cloud
-- [ ] Endpoint validado em ambiente local
+- [x] Endpoint compatível com Docker Healthcheck
+- [x] Endpoint compatível com provedores cloud
+- [x] Endpoint validado em ambiente local
 
 ---
 
 ## Testes
 
-- [ ] Testes do endpoint implementados
-- [ ] Testes de resposta implementados
-- [ ] Testes de falha implementados
+- [x] Testes do endpoint implementados
+- [x] Testes de resposta implementados
+- [x] Testes de falha implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
