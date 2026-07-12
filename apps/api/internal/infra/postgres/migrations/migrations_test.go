@@ -38,7 +38,7 @@ func TestRunMigrations(t *testing.T) {
 	ctx := context.Background()
 
 	dir := "."
-	err := Run(ctx, pool, dir)
+	err := Run(ctx, pool, dir, nil)
 	if err != nil {
 		t.Fatalf("run migrations: %v", err)
 	}
@@ -58,11 +58,11 @@ func TestRunMigrationsIsIdempotent(t *testing.T) {
 	ctx := context.Background()
 
 	dir := "."
-	if err := Run(ctx, pool, dir); err != nil {
+	if err := Run(ctx, pool, dir, nil); err != nil {
 		t.Fatalf("first run: %v", err)
 	}
 
-	if err := Run(ctx, pool, dir); err != nil {
+	if err := Run(ctx, pool, dir, nil); err != nil {
 		t.Fatalf("second run: %v", err)
 	}
 }

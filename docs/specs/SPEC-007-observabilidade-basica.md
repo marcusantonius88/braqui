@@ -357,39 +357,39 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Estrutura `/infra/logger` criada
-- [ ] Logger centralizado criado
-- [ ] Interface de logging definida
+- [x] Estrutura `/infra/logger` criada
+- [x] Logger centralizado criado
+- [x] Interface de logging definida
 
 ---
 
 ## Configuração
 
-- [ ] Configuração de logger implementada
-- [ ] Níveis INFO implementados
-- [ ] Níveis WARN implementados
-- [ ] Níveis ERROR implementados
-- [ ] DEBUG preparado para evolução futura
+- [x] Configuração de logger implementada
+- [x] Níveis INFO implementados
+- [x] Níveis WARN implementados
+- [x] Níveis ERROR implementados
+- [x] DEBUG preparado para evolução futura
 
 ---
 
 ## Startup e Shutdown
 
-- [ ] Log de startup implementado
+- [x] Log de startup implementado
 - [ ] Log de shutdown implementado
-- [ ] Log de carregamento de ambiente implementado
-- [ ] Log de inicialização de dependências implementado
+- [x] Log de carregamento de ambiente implementado
+- [x] Log de inicialização de dependências implementado
 
 ---
 
 ## Banco de Dados
 
-- [ ] Log de conexão com PostgreSQL implementado
-- [ ] Log de falha de conexão implementado
+- [x] Log de conexão com PostgreSQL implementado
+- [x] Log de falha de conexão implementado
 
 ---
 
-## Telegram
+## Telegram (pendente — depende de SPEC-009)
 
 - [ ] Log de recebimento de webhook implementado
 - [ ] Log de processamento de mensagens implementado
@@ -397,7 +397,7 @@ Fora do MVP:
 
 ---
 
-## Scheduler
+## Scheduler (pendente — depende de SPEC-018)
 
 - [ ] Log de execução de jobs implementado
 - [ ] Log de falha de jobs implementado
@@ -406,41 +406,41 @@ Fora do MVP:
 
 ## Tratamento de Erros
 
-- [ ] Padronização de logs de erro implementada
-- [ ] Contextualização mínima de erros implementada
-- [ ] Troubleshooting básico suportado
+- [x] Padronização de logs de erro implementada
+- [x] Contextualização mínima de erros implementada
+- [x] Troubleshooting básico suportado
 
 ---
 
 ## Segurança
 
-- [ ] Secrets removidos dos logs
-- [ ] Tokens removidos dos logs
-- [ ] Payloads sensíveis protegidos
-- [ ] Credenciais protegidas
+- [x] Secrets removidos dos logs
+- [x] Tokens removidos dos logs
+- [x] Payloads sensíveis protegidos
+- [x] Credenciais protegidas
 
 ---
 
 ## Estruturação
 
-- [ ] Logs estruturados implementados
-- [ ] Formato JSON implementado
-- [ ] Contexto de módulo implementado
-- [ ] Contexto de operação implementado
+- [x] Logs estruturados implementados
+- [x] Formato JSON implementado
+- [x] Contexto de módulo implementado
+- [x] Contexto de operação implementado
 
 ---
 
 ## Testes
 
-- [ ] Testes do logger implementados
-- [ ] Testes de formatação implementados
-- [ ] Testes de níveis de log implementados
+- [x] Testes do logger implementados
+- [x] Testes de formatação implementados
+- [x] Testes de níveis de log implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
-- [ ] Logs consistentes em toda a aplicação
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
+- [x] Logs consistentes em toda a aplicação

@@ -18,7 +18,7 @@ func (m *mockPinger) Ping(ctx context.Context) error {
 }
 
 func TestHealth_StatusOK(t *testing.T) {
-	h := NewHandler(&mockPinger{})
+	h := NewHandler(&mockPinger{}, nil)
 	req := httptest.NewRequest("GET", "/health", nil)
 	rec := httptest.NewRecorder()
 
@@ -38,7 +38,7 @@ func TestHealth_StatusOK(t *testing.T) {
 }
 
 func TestHealth_NoDB(t *testing.T) {
-	h := NewHandler(nil)
+	h := NewHandler(nil, nil)
 	req := httptest.NewRequest("GET", "/health", nil)
 	rec := httptest.NewRecorder()
 
@@ -58,7 +58,7 @@ func TestHealth_NoDB(t *testing.T) {
 }
 
 func TestHealth_Degraded(t *testing.T) {
-	h := NewHandler(&mockPinger{err: errors.New("connection refused")})
+	h := NewHandler(&mockPinger{err: errors.New("connection refused")}, nil)
 	req := httptest.NewRequest("GET", "/health", nil)
 	rec := httptest.NewRecorder()
 
@@ -78,7 +78,7 @@ func TestHealth_Degraded(t *testing.T) {
 }
 
 func TestHealth_ContentType(t *testing.T) {
-	h := NewHandler(&mockPinger{})
+	h := NewHandler(&mockPinger{}, nil)
 	req := httptest.NewRequest("GET", "/health", nil)
 	rec := httptest.NewRecorder()
 

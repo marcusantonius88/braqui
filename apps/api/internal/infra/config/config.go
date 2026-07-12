@@ -10,6 +10,7 @@ import (
 
 type Config struct {
 	AppEnv            string
+	LogLevel          string
 	TelegramBotToken  string
 	DatabaseURL       string
 	GeminiAPIKey      string
@@ -23,6 +24,7 @@ func Load() (*Config, error) {
 
 	cfg := &Config{
 		AppEnv:            os.Getenv("APP_ENV"),
+		LogLevel:          os.Getenv("LOG_LEVEL"),
 		TelegramBotToken:  os.Getenv("TELEGRAM_BOT_TOKEN"),
 		DatabaseURL:       os.Getenv("DATABASE_URL"),
 		GeminiAPIKey:      os.Getenv("GEMINI_API_KEY"),
@@ -46,6 +48,9 @@ func setDefaults(cfg *Config) {
 	}
 	if cfg.SchedulerEnabled == "" {
 		cfg.SchedulerEnabled = "true"
+	}
+	if cfg.LogLevel == "" {
+		cfg.LogLevel = "info"
 	}
 }
 

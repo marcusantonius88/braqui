@@ -10,12 +10,17 @@ type Pinger interface {
 	Ping(ctx context.Context) error
 }
 
-type Handler struct {
-	db Pinger
+type Logger interface {
+	Error(msg string, fields map[string]any)
 }
 
-func NewHandler(db Pinger) *Handler {
-	return &Handler{db: db}
+type Handler struct {
+	db Pinger
+	log Logger
+}
+
+func NewHandler(db Pinger, log Logger) *Handler {
+	return &Handler{db: db, log: log}
 }
 
 func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
@@ -24,6 +29,9 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if h.db != nil {
 		if err := h.db.Ping(r.Context()); err != nil {
 			status = "degraded"
+			if h.log != nil {
+				h.log.Error("database ping failed", map[string]any{"error": err.Error()})
+			}
 		}
 	}
 

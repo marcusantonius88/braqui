@@ -3,7 +3,6 @@ package migrations
 import (
 	"context"
 	"fmt"
-	"log"
 	"os"
 	"path/filepath"
 	"sort"
@@ -12,7 +11,11 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func Run(ctx context.Context, pool *pgxpool.Pool, migrationsDir string) error {
+type Logger interface {
+	Info(msg string, fields map[string]any)
+}
+
+func Run(ctx context.Context, pool *pgxpool.Pool, migrationsDir string, log Logger) error {
 	if err := ensureMigrationTable(ctx, pool); err != nil {
 		return fmt.Errorf("ensure migration table: %w", err)
 	}
@@ -22,8 +25,8 @@ func Run(ctx context.Context, pool *pgxpool.Pool, migrationsDir string) error {
 		return fmt.Errorf("list migrations: %w", err)
 	}
 
-	if len(files) == 0 {
-		log.Println("no migration files found")
+	if len(files) == 0 && log != nil {
+		log.Info("no migration files found", nil)
 		return nil
 	}
 
@@ -54,7 +57,9 @@ func Run(ctx context.Context, pool *pgxpool.Pool, migrationsDir string) error {
 			return fmt.Errorf("record migration %s: %w", name, err)
 		}
 
-		log.Printf("migration applied: %s", name)
+		if log != nil {
+			log.Info("migration applied", map[string]any{"version": name})
+		}
 	}
 
 	return nil
