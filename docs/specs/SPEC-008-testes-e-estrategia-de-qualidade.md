@@ -330,43 +330,43 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Estrutura `/tests` criada
-- [ ] Estrutura `/tests/integration` criada
-- [ ] Estrutura `/tests/e2e` criada
+- [x] Estrutura `/tests` criada
+- [x] Estrutura `/tests/integration` criada
+- [x] Estrutura `/tests/e2e` criada
 
 ---
 
 ## Testes Unitários
 
-- [ ] Estratégia de testes unitários definida
-- [ ] Testes de entidades implementados
-- [ ] Testes de casos de uso implementados
-- [ ] Testes de parsers implementados
-- [ ] Testes de regras de negócio implementados
+- [x] Estratégia de testes unitários definida
+- [x] Testes de entidades implementados
+- [ ] Testes de casos de uso implementados (pendente — depende das specs de use case)
+- [ ] Testes de parsers implementados (pendente — depende de SPEC-014)
+- [ ] Testes de regras de negócio implementados (pendente — depende das specs de use case)
 
 ---
 
 ## Mocks
 
-- [ ] Mock de PetRepository criado
-- [ ] Mock de EventRepository criado
-- [ ] Mock de ReminderRepository criado
-- [ ] Mock de TelegramGateway criado
-- [ ] Mock de AIProvider criado
-- [ ] Mock de ClimateProvider criado
+- [x] Mock de PetRepository criado
+- [x] Mock de EventRepository criado
+- [x] Mock de ReminderRepository criado
+- [ ] Mock de TelegramGateway criado (pendente — depende de SPEC-009)
+- [ ] Mock de AIProvider criado (pendente — depende de SPEC-015)
+- [ ] Mock de ClimateProvider criado (pendente — depende de SPEC-020)
 
 ---
 
 ## Testes de Integração
 
-- [ ] Estratégia de integração definida
-- [ ] Testes de PostgreSQL implementados
-- [ ] Testes de repositories implementados
-- [ ] Testes de migrations implementados
+- [x] Estratégia de integração definida
+- [x] Testes de PostgreSQL implementados
+- [x] Testes de repositories implementados
+- [x] Testes de migrations implementados
 
 ---
 
-## Fluxos Críticos
+## Fluxos Críticos (pendentes — dependem das specs de funcionalidade)
 
 - [ ] Testes de onboarding implementados
 - [ ] Testes de parser de eventos implementados
@@ -378,38 +378,38 @@ Fora do MVP:
 
 ## Dependências Externas
 
-- [ ] Telegram isolado em testes
-- [ ] IA isolada em testes
-- [ ] Clima isolado em testes
-- [ ] Banco real evitado em testes unitários
+- [ ] Telegram isolado em testes (pendente — depende de SPEC-009)
+- [ ] IA isolada em testes (pendente — depende de SPEC-015)
+- [ ] Clima isolado em testes (pendente — depende de SPEC-020)
+- [x] Banco real evitado em testes unitários
 
 ---
 
 ## Qualidade
 
-- [ ] Estratégia de regressão definida
-- [ ] Cobertura mínima dos fluxos críticos atingida
-- [ ] Execução rápida dos testes validada
+- [x] Estratégia de regressão definida
+- [ ] Cobertura mínima dos fluxos críticos atingida (pendente — depende das specs de funcionalidade)
+- [x] Execução rápida dos testes validada
 
 ---
 
 ## Integração com Desenvolvimento
 
-- [ ] Estratégia compatível com SDD
-- [ ] Estratégia compatível com OpenCode
-- [ ] Estratégia compatível com IA-assisted development
+- [x] Estratégia compatível com SDD
+- [x] Estratégia compatível com OpenCode
+- [x] Estratégia compatível com IA-assisted development
 
 ---
 
 ## Futuro
 
-- [ ] Base preparada para testes E2E
-- [ ] Base preparada para quality gates futuros
+- [x] Base preparada para testes E2E
+- [x] Base preparada para quality gates futuros
 
 ---
 
 ## Documentação
 
-- [ ] Estratégia de testes documentada
-- [ ] Convenções de testes documentadas
-- [ ] Boas práticas de testes documentadas
+- [x] Estratégia de testes documentada
+- [x] Convenções de testes documentadas
+- [x] Boas práticas de testes documentadas

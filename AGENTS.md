@@ -307,7 +307,9 @@ Nenhuma regra de negócio deve existir dentro das consultas SQL.
 
 Priorizar:
 
-- testes unitários.
+1. testes unitários
+2. testes de integração
+3. testes E2E (futuro)
 
 Mockar:
 
@@ -316,6 +318,14 @@ Mockar:
 - gateways.
 
 Testes de integração devem utilizar PostgreSQL via Docker.
+
+## Convenções
+
+- `go test ./...` deve passar antes de todo commit
+- Nome de testes: `Test<Entidade>_<Cenario>` (ex: `TestUser_Create`)
+- Testes unitários não devem depender de banco real
+- Testes de integração ficam no mesmo pacote que a implementação
+- Mocks ficam em `internal/<dominio>/mocks/`
 
 ---
 
