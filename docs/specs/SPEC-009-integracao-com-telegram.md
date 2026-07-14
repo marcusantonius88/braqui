@@ -351,97 +351,97 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Estrutura `/interfaces/telegram` criada
-- [ ] Estrutura `/infra/telegram` criada
-- [ ] Organização arquitetural definida
+- [x] Estrutura `/interfaces/telegram` criada
+- [x] Estrutura `/infra/telegram` criada
+- [x] Organização arquitetural definida
 
 ---
 
 ## Webhook
 
-- [ ] Endpoint `POST /telegram/webhook` criado
-- [ ] Handler Telegram implementado
-- [ ] Recebimento de mensagens funcionando
-- [ ] Validação básica do payload implementada
+- [x] Endpoint `POST /telegram/webhook` criado
+- [x] Handler Telegram implementado
+- [x] Recebimento de mensagens funcionando
+- [x] Validação básica do payload implementada
 
 ---
 
 ## Gateway
 
-- [ ] Interface TelegramGateway criada
-- [ ] Implementação TelegramGateway criada
-- [ ] Cliente HTTP Telegram configurado
+- [x] Interface TelegramGateway criada
+- [x] Implementação TelegramGateway criada
+- [x] Cliente HTTP Telegram configurado
 
 ---
 
 ## Envio de Mensagens
 
-- [ ] Envio de mensagens implementado
-- [ ] Tratamento de erros de envio implementado
-- [ ] Timeout configurado
+- [x] Envio de mensagens implementado
+- [x] Tratamento de erros de envio implementado
+- [x] Timeout configurado
 
 ---
 
 ## Recebimento de Mensagens
 
-- [ ] Processamento de mensagens de texto implementado
-- [ ] Extração de chat_id implementada
-- [ ] Extração de telegram_user_id implementada
+- [x] Processamento de mensagens de texto implementado
+- [x] Extração de chat_id implementada
+- [x] Extração de telegram_user_id implementada
 
 ---
 
 ## Comandos
 
-- [ ] Comando `/start` implementado
-- [ ] Comando `/help` implementado
+- [x] Comando `/start` implementado
+- [x] Comando `/help` implementado
 
 ---
 
 ## Identificação
 
-- [ ] Telegram ID utilizado como identificador
-- [ ] Associação de usuário implementada
-- [ ] Fluxo de identificação validado
+- [x] Telegram ID utilizado como identificador
+- [ ] Associação de usuário implementada (pendente — depende de SPEC-010)
+- [ ] Fluxo de identificação validado (pendente — depende de SPEC-010)
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de webhook recebido implementado
-- [ ] Log de mensagem processada implementado
-- [ ] Log de falhas implementado
+- [x] Log de webhook recebido implementado
+- [x] Log de mensagem processada implementado
+- [x] Log de falhas implementado
 
 ---
 
 ## Segurança
 
-- [ ] Validação de origem implementada
-- [ ] Payload sanitizado
-- [ ] Dados sensíveis protegidos
+- [ ] Validação de origem implementada (pendente — validação via secret do Telegram)
+- [x] Payload sanitizado
+- [x] Dados sensíveis protegidos
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Falhas de integração tratadas
-- [ ] Erros registrados corretamente
-- [ ] Aplicação resiliente a falhas do Telegram
+- [x] Falhas de integração tratadas
+- [x] Erros registrados corretamente
+- [x] Aplicação resiliente a falhas do Telegram
 
 ---
 
 ## Testes
 
-- [ ] Mock de TelegramGateway criado
-- [ ] Testes do handler implementados
-- [ ] Testes do gateway implementados
-- [ ] Testes de recebimento implementados
-- [ ] Testes de envio implementados
+- [x] Mock de TelegramGateway criado
+- [x] Testes do handler implementados
+- [x] Testes do gateway implementados
+- [x] Testes de recebimento implementados
+- [x] Testes de envio implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Telegram desacoplado do domínio
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
+- [x] Telegram desacoplado do domínio
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
