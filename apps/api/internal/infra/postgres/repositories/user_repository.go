@@ -19,19 +19,19 @@ func NewUserRepository(pool *pgxpool.Pool) *UserRepository {
 
 func (r *UserRepository) Create(ctx context.Context, user *domain.User) error {
 	return r.pool.QueryRow(ctx,
-		`INSERT INTO users (telegram_id, first_name)
-		 VALUES ($1, $2)
+		`INSERT INTO users (telegram_id, first_name, username)
+		 VALUES ($1, $2, $3)
 		 RETURNING id, created_at, updated_at`,
-		user.TelegramID, user.FirstName,
+		user.TelegramID, user.FirstName, user.Username,
 	).Scan(&user.ID, &user.CreatedAt, &user.UpdatedAt)
 }
 
 func (r *UserRepository) FindByID(ctx context.Context, id string) (*domain.User, error) {
 	user := &domain.User{}
 	err := r.pool.QueryRow(ctx,
-		`SELECT id, telegram_id, first_name, created_at, updated_at
+		`SELECT id, telegram_id, first_name, username, created_at, updated_at
 		 FROM users WHERE id = $1`, id,
-	).Scan(&user.ID, &user.TelegramID, &user.FirstName, &user.CreatedAt, &user.UpdatedAt)
+	).Scan(&user.ID, &user.TelegramID, &user.FirstName, &user.Username, &user.CreatedAt, &user.UpdatedAt)
 	if err != nil {
 		if err == pgx.ErrNoRows {
 			return nil, domain.ErrNotFound
@@ -44,9 +44,9 @@ func (r *UserRepository) FindByID(ctx context.Context, id string) (*domain.User,
 func (r *UserRepository) FindByTelegramID(ctx context.Context, telegramID int64) (*domain.User, error) {
 	user := &domain.User{}
 	err := r.pool.QueryRow(ctx,
-		`SELECT id, telegram_id, first_name, created_at, updated_at
+		`SELECT id, telegram_id, first_name, username, created_at, updated_at
 		 FROM users WHERE telegram_id = $1`, telegramID,
-	).Scan(&user.ID, &user.TelegramID, &user.FirstName, &user.CreatedAt, &user.UpdatedAt)
+	).Scan(&user.ID, &user.TelegramID, &user.FirstName, &user.Username, &user.CreatedAt, &user.UpdatedAt)
 	if err != nil {
 		if err == pgx.ErrNoRows {
 			return nil, domain.ErrNotFound

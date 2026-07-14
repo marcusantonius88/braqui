@@ -365,95 +365,95 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Entidade User criada
-- [ ] UserRepository criado
-- [ ] Casos de uso de identificação criados
+- [x] Entidade User criada
+- [x] UserRepository criado
+- [x] Casos de uso de identificação criados
 
 ---
 
 ## Persistência
 
-- [ ] Tabela users criada
-- [ ] Migration de users criada
-- [ ] Persistência de usuários implementada
+- [x] Tabela users criada
+- [x] Migration de users criada
+- [x] Persistência de usuários implementada
 
 ---
 
 ## Identificação
 
-- [ ] Extração de telegram_user_id implementada
-- [ ] Busca de usuário implementada
-- [ ] Criação automática de usuário implementada
+- [x] Extração de telegram_user_id implementada
+- [x] Busca de usuário implementada
+- [x] Criação automática de usuário implementada
 
 ---
 
 ## Cadastro Automático
 
-- [ ] Fluxo de primeiro acesso implementado
-- [ ] Criação automática de usuário validada
-- [ ] Usuário persistido corretamente
+- [x] Fluxo de primeiro acesso implementado
+- [x] Criação automática de usuário validada
+- [x] Usuário persistido corretamente
 
 ---
 
 ## Onboarding
 
-- [ ] Início do onboarding implementado
-- [ ] Primeira mensagem de boas-vindas implementada
-- [ ] Fluxo inicial de cadastro iniciado
+- [x] Início do onboarding implementado
+- [x] Primeira mensagem de boas-vindas implementada
+- [ ] Fluxo inicial de cadastro concluído (pendente — depende de SPEC-011 cadastro de pet)
 
 ---
 
 ## Associação de Contexto
 
-- [ ] Recuperação de usuário implementada
-- [ ] Recuperação de pet associado implementada
-- [ ] Recuperação de histórico implementada
+- [x] Recuperação de usuário implementada
+- [ ] Recuperação de pet associado implementada (pendente — depende de SPEC-011)
+- [ ] Recuperação de histórico implementada (pendente — depende de specs de funcionalidade)
 
 ---
 
 ## Regras de Negócio
 
-- [ ] Regra de um pet por usuário implementada
-- [ ] Preparação para múltiplos pets futura documentada
+- [ ] Regra de um pet por usuário implementada (pendente — depende de SPEC-011)
+- [x] Preparação para múltiplos pets futura documentada
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de criação de usuário implementado
-- [ ] Log de onboarding iniciado implementado
-- [ ] Log de onboarding concluído implementado
+- [x] Log de criação de usuário implementado
+- [x] Log de onboarding iniciado implementado
+- [ ] Log de onboarding concluído implementado (pendente — depende de SPEC-011)
 
 ---
 
 ## Segurança
 
-- [ ] Nenhuma senha armazenada
-- [ ] Nenhuma credencial solicitada
-- [ ] Identificadores internos protegidos
+- [x] Nenhuma senha armazenada
+- [x] Nenhuma credencial solicitada
+- [x] Identificadores internos protegidos
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Falhas de persistência tratadas
-- [ ] Mensagens amigáveis implementadas
-- [ ] Logs de erro implementados
+- [x] Falhas de persistência tratadas
+- [x] Mensagens amigáveis implementadas
+- [x] Logs de erro implementados
 
 ---
 
 ## Testes
 
-- [ ] Testes de identificação implementados
-- [ ] Testes de criação automática implementados
-- [ ] Testes de onboarding implementados
-- [ ] Testes de persistência implementados
+- [x] Testes de identificação implementados
+- [x] Testes de criação automática implementados
+- [x] Testes de onboarding implementados
+- [x] Testes de persistência implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
-- [ ] Domínio desacoplado do Telegram
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
+- [x] Domínio desacoplado do Telegram
