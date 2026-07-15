@@ -412,91 +412,91 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Entidade Pet criada
-- [ ] PetRepository criado
-- [ ] Casos de uso de cadastro criados
+- [x] Entidade Pet criada
+- [x] PetRepository criado
+- [x] Casos de uso de cadastro criados
 
 ---
 
 ## Persistência
 
-- [ ] Tabela pets criada
-- [ ] Migration de pets criada
-- [ ] Persistência de pets implementada
+- [x] Tabela pets criada
+- [x] Migration de pets criada
+- [x] Persistência de pets implementada
 
 ---
 
 ## Associação
 
-- [ ] Associação User → Pet implementada
-- [ ] Relacionamento persistido corretamente
+- [x] Associação User → Pet implementada
+- [x] Relacionamento persistido corretamente
 
 ---
 
 ## Fluxo Conversacional
 
-- [ ] Pergunta de nome implementada
-- [ ] Pergunta de raça implementada
-- [ ] Pergunta de idade implementada
-- [ ] Pergunta de peso implementada
-- [ ] Pergunta de cidade implementada
+- [x] Pergunta de nome implementada
+- [x] Pergunta de raça implementada
+- [x] Pergunta de idade implementada
+- [x] Pergunta de peso implementada
+- [x] Pergunta de cidade implementada
 
 ---
 
 ## Estado Conversacional
 
-- [ ] Avanço entre etapas implementado
-- [ ] Recuperação de estado implementada
-- [ ] Continuidade de onboarding implementada
+- [x] Avanço entre etapas implementado
+- [x] Recuperação de estado implementada
+- [x] Continuidade de onboarding implementada
 
 ---
 
 ## Validações
 
-- [ ] Validação de nome implementada
-- [ ] Validação de raça implementada
-- [ ] Validação de idade implementada
-- [ ] Validação de peso implementada
-- [ ] Validação de cidade implementada
+- [x] Validação de nome implementada
+- [x] Validação de raça implementada
+- [x] Validação de idade implementada
+- [x] Validação de peso implementada
+- [x] Validação de cidade implementada
 
 ---
 
 ## Conclusão de Cadastro
 
-- [ ] Confirmação final implementada
-- [ ] Finalização de onboarding implementada
-- [ ] Liberação das funcionalidades implementada
+- [x] Confirmação final implementada
+- [x] Finalização de onboarding implementada
+- [x] Liberação das funcionalidades implementada
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de início de cadastro implementado
-- [ ] Log de conclusão de cadastro implementado
-- [ ] Log de falhas implementado
+- [x] Log de início de cadastro implementado
+- [x] Log de conclusão de cadastro implementado
+- [x] Log de falhas implementado
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Falhas de persistência tratadas
-- [ ] Mensagens amigáveis implementadas
-- [ ] Recuperação de fluxo implementada
+- [x] Falhas de persistência tratadas
+- [x] Mensagens amigáveis implementadas
+- [x] Recuperação de fluxo implementada
 
 ---
 
 ## Testes
 
-- [ ] Testes de cadastro implementados
-- [ ] Testes de validação implementados
-- [ ] Testes de persistência implementados
-- [ ] Testes de onboarding implementados
+- [x] Testes de cadastro implementados
+- [x] Testes de validação implementados
+- [x] Testes de persistência implementados
+- [x] Testes de onboarding implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
-- [ ] Domínio desacoplado do Telegram
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
+- [x] Domínio desacoplado do Telegram

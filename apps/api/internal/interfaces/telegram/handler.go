@@ -15,19 +15,24 @@ type UserIdentificer interface {
 	Identify(ctx context.Context, telegramID int64, firstName, username string) (userID string, isNew bool, err error)
 }
 
+type Onboarder interface {
+	Process(ctx context.Context, userID, text string) (reply string, err error)
+}
+
 type Logger interface {
 	Info(msg string, fields map[string]any)
 	Error(msg string, fields map[string]any)
 }
 
 type Handler struct {
-	gateway TelegramGateway
-	users   UserIdentificer
-	log     Logger
+	gateway   TelegramGateway
+	users     UserIdentificer
+	onboarder Onboarder
+	log       Logger
 }
 
-func NewHandler(gateway TelegramGateway, users UserIdentificer, log Logger) *Handler {
-	return &Handler{gateway: gateway, users: users, log: log}
+func NewHandler(gateway TelegramGateway, users UserIdentificer, onboarder Onboarder, log Logger) *Handler {
+	return &Handler{gateway: gateway, users: users, onboarder: onboarder, log: log}
 }
 
 type update struct {
@@ -86,26 +91,30 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	h.log.Info("webhook received", map[string]any{"chat_id": chatID, "text": text, "from": firstName})
 
-	userID, isNew, err := h.users.Identify(r.Context(), telegramID, firstName, username)
+	userID, _, err := h.users.Identify(r.Context(), telegramID, firstName, username)
 	if err != nil {
 		h.log.Error("failed to identify user", map[string]any{"chat_id": chatID, "error": err.Error()})
 		http.Error(w, "internal error", http.StatusInternalServerError)
 		return
 	}
 
-	if isNew {
-		h.log.Info("new user created", map[string]any{"user_id": userID, "first_name": firstName})
-		reply := "Olá, " + firstName + "! Sou o Braqui, seu assistente para cuidar da saúde do seu cão braquicefálico.\n\nQual o nome do seu cão?"
+	reply, err := h.onboarder.Process(r.Context(), userID, text)
+	if err != nil {
+		h.log.Error("onboarding error", map[string]any{"user_id": userID, "error": err.Error()})
+		http.Error(w, "internal error", http.StatusInternalServerError)
+		return
+	}
+
+	if reply != "" {
 		if err := h.gateway.SendMessage(r.Context(), chatID, reply); err != nil {
-			h.log.Error("failed to send welcome", map[string]any{"chat_id": chatID, "error": err.Error()})
+			h.log.Error("failed to send message", map[string]any{"chat_id": chatID, "error": err.Error()})
 		}
 		w.WriteHeader(http.StatusOK)
 		json.NewEncoder(w).Encode(map[string]string{"status": "ok"})
 		return
 	}
 
-	reply := h.processMessage(text)
-
+	reply = h.processCommand(text)
 	if reply != "" {
 		if err := h.gateway.SendMessage(r.Context(), chatID, reply); err != nil {
 			h.log.Error("failed to send message", map[string]any{"chat_id": chatID, "error": err.Error()})
@@ -116,7 +125,7 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(map[string]string{"status": "ok"})
 }
 
-func (h *Handler) processMessage(text string) string {
+func (h *Handler) processCommand(text string) string {
 	switch text {
 	case "/start":
 		return "Olá! Use /help para ver os comandos disponíveis."
