@@ -8,8 +8,9 @@ import (
 type ConversationState struct {
 	ID        string
 	UserID    string
-	State     string
-	Data      []byte
+	Flow      string
+	Step      string
+	Payload   []byte
 	CreatedAt time.Time
 	UpdatedAt time.Time
 }

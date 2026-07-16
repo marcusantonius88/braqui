@@ -75,15 +75,19 @@ func TestReminderCreation(t *testing.T) {
 
 func TestConversationStateCreation(t *testing.T) {
 	s := &ConversationState{
-		UserID: "user-1",
-		State:  "awaiting_pet_name",
-		Data:   []byte(`{}`),
+		UserID:  "user-1",
+		Flow:    "register_pet",
+		Step:    "ask_name",
+		Payload: []byte(`{"name":"Thor"}`),
 	}
-	if s.State != "awaiting_pet_name" {
-		t.Fatalf("expected awaiting_pet_name, got %s", s.State)
+	if s.Flow != "register_pet" {
+		t.Fatalf("expected register_pet, got %s", s.Flow)
 	}
-	if string(s.Data) != "{}" {
-		t.Fatalf("expected {}, got %s", string(s.Data))
+	if s.Step != "ask_name" {
+		t.Fatalf("expected ask_name, got %s", s.Step)
+	}
+	if string(s.Payload) != `{"name":"Thor"}` {
+		t.Fatalf("expected payload, got %s", string(s.Payload))
 	}
 }
 

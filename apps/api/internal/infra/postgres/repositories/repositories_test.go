@@ -258,7 +258,7 @@ func TestConversationStateRepository_CRUD(t *testing.T) {
 		t.Fatalf("create user: %v", err)
 	}
 
-	state := &domain.ConversationState{UserID: user.ID, State: "awaiting_pet_name", Data: []byte(`{}`)}
+	state := &domain.ConversationState{UserID: user.ID, Flow: "register_pet", Step: "ask_name", Payload: []byte(`{}`)}
 	if err := convRepo.Create(ctx, state); err != nil {
 		t.Fatalf("create state: %v", err)
 	}
@@ -270,11 +270,14 @@ func TestConversationStateRepository_CRUD(t *testing.T) {
 	if err != nil {
 		t.Fatalf("find by user id: %v", err)
 	}
-	if found.State != "awaiting_pet_name" {
-		t.Fatalf("expected awaiting_pet_name, got %s", found.State)
+	if found.Flow != "register_pet" {
+		t.Fatalf("expected register_pet, got %s", found.Flow)
+	}
+	if found.Step != "ask_name" {
+		t.Fatalf("expected ask_name, got %s", found.Step)
 	}
 
-	found.State = "idle"
+	found.Step = "idle"
 	if err := convRepo.Update(ctx, found); err != nil {
 		t.Fatalf("update state: %v", err)
 	}
@@ -283,8 +286,8 @@ func TestConversationStateRepository_CRUD(t *testing.T) {
 	if err != nil {
 		t.Fatalf("find by user id after update: %v", err)
 	}
-	if updated.State != "idle" {
-		t.Fatalf("expected idle, got %s", updated.State)
+	if updated.Step != "idle" {
+		t.Fatalf("expected idle, got %s", updated.Step)
 	}
 }
 
@@ -294,7 +297,7 @@ func TestConversationStateRepository_NotFound(t *testing.T) {
 	repo := NewConversationStateRepository(pool)
 	ctx := context.Background()
 
-	state := &domain.ConversationState{ID: "00000000-0000-0000-0000-000000000000", Data: []byte(`{}`)}
+	state := &domain.ConversationState{ID: "00000000-0000-0000-0000-000000000000", Payload: []byte(`{}`)}
 	err := repo.Update(ctx, state)
 	if err != domain.ErrNotFound {
 		t.Fatalf("expected ErrNotFound, got %v", err)

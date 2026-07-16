@@ -38,47 +38,68 @@ func (r *mockPetRepo) FindByUserID(ctx context.Context, userID string) ([]*domai
 	return result, nil
 }
 
-type mockStateRepo struct {
+type mockStateManager struct {
 	mu     sync.Mutex
 	states map[string]*domain.ConversationState
 }
 
-func newMockStateRepo() *mockStateRepo {
-	return &mockStateRepo{states: make(map[string]*domain.ConversationState)}
+func newMockStateManager() *mockStateManager {
+	return &mockStateManager{states: make(map[string]*domain.ConversationState)}
 }
 
-func (r *mockStateRepo) Create(ctx context.Context, state *domain.ConversationState) error {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	state.ID = "state-1"
-	r.states[state.UserID] = state
-	return nil
+func (m *mockStateManager) Start(ctx context.Context, userID, flow, step string, payload any) (*domain.ConversationState, error) {
+	m.mu.Lock()
+	defer m.mu.Unlock()
+	raw, _ := json.Marshal(payload)
+	state := &domain.ConversationState{
+		ID:      "state-" + userID,
+		UserID:  userID,
+		Flow:    flow,
+		Step:    step,
+		Payload: raw,
+	}
+	m.states[userID] = state
+	return state, nil
 }
 
-func (r *mockStateRepo) FindByUserID(ctx context.Context, userID string) (*domain.ConversationState, error) {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	s, ok := r.states[userID]
+func (m *mockStateManager) Get(ctx context.Context, userID string) (*domain.ConversationState, error) {
+	m.mu.Lock()
+	defer m.mu.Unlock()
+	s, ok := m.states[userID]
 	if !ok {
-		return nil, domain.ErrNotFound
+		return nil, nil
 	}
 	return s, nil
 }
 
-func (r *mockStateRepo) Update(ctx context.Context, state *domain.ConversationState) error {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	if _, ok := r.states[state.UserID]; !ok {
+func (m *mockStateManager) Advance(ctx context.Context, userID, nextStep string, payload any) (*domain.ConversationState, error) {
+	m.mu.Lock()
+	defer m.mu.Unlock()
+	s, ok := m.states[userID]
+	if !ok {
+		return nil, domain.ErrNotFound
+	}
+	raw, _ := json.Marshal(payload)
+	s.Step = nextStep
+	s.Payload = raw
+	return s, nil
+}
+
+func (m *mockStateManager) Complete(ctx context.Context, userID string) error {
+	m.mu.Lock()
+	defer m.mu.Unlock()
+	s, ok := m.states[userID]
+	if !ok {
 		return domain.ErrNotFound
 	}
-	r.states[state.UserID] = state
+	s.Step = ""
 	return nil
 }
 
 func TestOnboarder_HasPet(t *testing.T) {
 	petRepo := newMockPetRepo()
-	stateRepo := newMockStateRepo()
-	o := NewOnboarder(petRepo, stateRepo)
+	states := newMockStateManager()
+	o := NewOnboarder(petRepo, states)
 	ctx := context.Background()
 
 	petRepo.Create(ctx, &domain.Pet{UserID: "user-1", Name: "Rex"})
@@ -94,8 +115,8 @@ func TestOnboarder_HasPet(t *testing.T) {
 
 func TestOnboarder_FirstStep(t *testing.T) {
 	petRepo := newMockPetRepo()
-	stateRepo := newMockStateRepo()
-	o := NewOnboarder(petRepo, stateRepo)
+	states := newMockStateManager()
+	o := NewOnboarder(petRepo, states)
 	ctx := context.Background()
 
 	reply, err := o.Process(ctx, "user-2", "/start")
@@ -106,23 +127,19 @@ func TestOnboarder_FirstStep(t *testing.T) {
 		t.Fatalf("expected name question, got: %s", reply)
 	}
 
-	state, _ := stateRepo.FindByUserID(ctx, "user-2")
-	if state == nil || state.State != "onboarding_name" {
-		t.Fatalf("expected state onboarding_name, got %v", state)
+	state, _ := states.Get(ctx, "user-2")
+	if state == nil || state.Flow != flowRegisterPet || state.Step != stepAskName {
+		t.Fatalf("expected flow register_pet / step ask_name, got flow=%s step=%s", state.Flow, state.Step)
 	}
 }
 
 func TestOnboarder_FullFlow(t *testing.T) {
 	petRepo := newMockPetRepo()
-	stateRepo := newMockStateRepo()
-	o := NewOnboarder(petRepo, stateRepo)
+	states := newMockStateManager()
+	o := NewOnboarder(petRepo, states)
 	ctx := context.Background()
 
-	stateRepo.Create(ctx, &domain.ConversationState{
-		UserID: "user-3",
-		State:  "onboarding_name",
-		Data:   []byte("{}"),
-	})
+	states.Start(ctx, "user-3", flowRegisterPet, stepAskName, onboardingData{})
 
 	steps := []struct {
 		input string
@@ -162,15 +179,11 @@ func TestOnboarder_FullFlow(t *testing.T) {
 
 func TestOnboarder_EmptyName(t *testing.T) {
 	petRepo := newMockPetRepo()
-	stateRepo := newMockStateRepo()
-	o := NewOnboarder(petRepo, stateRepo)
+	states := newMockStateManager()
+	o := NewOnboarder(petRepo, states)
 	ctx := context.Background()
 
-	stateRepo.Create(ctx, &domain.ConversationState{
-		UserID: "user-4",
-		State:  "onboarding_name",
-		Data:   []byte("{}"),
-	})
+	states.Start(ctx, "user-4", flowRegisterPet, stepAskName, onboardingData{})
 
 	reply, err := o.Process(ctx, "user-4", "")
 	if err != nil {
@@ -183,16 +196,11 @@ func TestOnboarder_EmptyName(t *testing.T) {
 
 func TestOnboarder_InvalidAge(t *testing.T) {
 	petRepo := newMockPetRepo()
-	stateRepo := newMockStateRepo()
-	o := NewOnboarder(petRepo, stateRepo)
+	states := newMockStateManager()
+	o := NewOnboarder(petRepo, states)
 	ctx := context.Background()
 
-	data, _ := json.Marshal(onboardingData{Name: "Rex", Breed: "SRD"})
-	stateRepo.Create(ctx, &domain.ConversationState{
-		UserID: "user-5",
-		State:  "onboarding_age",
-		Data:   data,
-	})
+	states.Start(ctx, "user-5", flowRegisterPet, stepAskAge, onboardingData{Name: "Rex", Breed: "SRD", Age: 3})
 
 	reply, err := o.Process(ctx, "user-5", "abc")
 	if err != nil {
@@ -205,16 +213,11 @@ func TestOnboarder_InvalidAge(t *testing.T) {
 
 func TestOnboarder_InvalidWeight(t *testing.T) {
 	petRepo := newMockPetRepo()
-	stateRepo := newMockStateRepo()
-	o := NewOnboarder(petRepo, stateRepo)
+	states := newMockStateManager()
+	o := NewOnboarder(petRepo, states)
 	ctx := context.Background()
 
-	data, _ := json.Marshal(onboardingData{Name: "Rex", Breed: "SRD", Age: 3})
-	stateRepo.Create(ctx, &domain.ConversationState{
-		UserID: "user-6",
-		State:  "onboarding_weight",
-		Data:   data,
-	})
+	states.Start(ctx, "user-6", flowRegisterPet, stepAskWeight, onboardingData{Name: "Rex", Breed: "SRD", Age: 3, Weight: 12})
 
 	reply, err := o.Process(ctx, "user-6", "-5")
 	if err != nil {

@@ -48,12 +48,13 @@ CREATE TABLE reminders (
 CREATE INDEX idx_reminders_pet_id ON reminders(pet_id);
 
 CREATE TABLE conversation_states (
-    id         UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    user_id    UUID         NOT NULL REFERENCES users(id) ON DELETE CASCADE UNIQUE,
-    state      VARCHAR(100) NOT NULL DEFAULT 'idle',
-    data       JSONB        NOT NULL DEFAULT '{}',
-    created_at TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ  NOT NULL DEFAULT NOW()
+    id           UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id      UUID         NOT NULL REFERENCES users(id) ON DELETE CASCADE UNIQUE,
+    current_flow VARCHAR(100) NOT NULL DEFAULT '',
+    current_step VARCHAR(100) NOT NULL DEFAULT 'idle',
+    payload      JSONB        NOT NULL DEFAULT '{}',
+    created_at   TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
+    updated_at   TIMESTAMPTZ  NOT NULL DEFAULT NOW()
 );
 
 CREATE INDEX idx_conversation_states_user_id ON conversation_states(user_id);

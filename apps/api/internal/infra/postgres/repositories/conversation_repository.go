@@ -19,19 +19,19 @@ func NewConversationStateRepository(pool *pgxpool.Pool) *ConversationStateReposi
 
 func (r *ConversationStateRepository) Create(ctx context.Context, state *domain.ConversationState) error {
 	return r.pool.QueryRow(ctx,
-		`INSERT INTO conversation_states (user_id, state, data)
-		 VALUES ($1, $2, $3)
+		`INSERT INTO conversation_states (user_id, current_flow, current_step, payload)
+		 VALUES ($1, $2, $3, $4)
 		 RETURNING id, created_at, updated_at`,
-		state.UserID, state.State, state.Data,
+		state.UserID, state.Flow, state.Step, state.Payload,
 	).Scan(&state.ID, &state.CreatedAt, &state.UpdatedAt)
 }
 
 func (r *ConversationStateRepository) FindByUserID(ctx context.Context, userID string) (*domain.ConversationState, error) {
 	state := &domain.ConversationState{}
 	err := r.pool.QueryRow(ctx,
-		`SELECT id, user_id, state, data, created_at, updated_at
+		`SELECT id, user_id, current_flow, current_step, payload, created_at, updated_at
 		 FROM conversation_states WHERE user_id = $1`, userID,
-	).Scan(&state.ID, &state.UserID, &state.State, &state.Data, &state.CreatedAt, &state.UpdatedAt)
+	).Scan(&state.ID, &state.UserID, &state.Flow, &state.Step, &state.Payload, &state.CreatedAt, &state.UpdatedAt)
 	if err != nil {
 		if err == pgx.ErrNoRows {
 			return nil, domain.ErrNotFound
@@ -43,9 +43,9 @@ func (r *ConversationStateRepository) FindByUserID(ctx context.Context, userID s
 
 func (r *ConversationStateRepository) Update(ctx context.Context, state *domain.ConversationState) error {
 	tag, err := r.pool.Exec(ctx,
-		`UPDATE conversation_states SET state = $1, data = $2, updated_at = NOW()
-		 WHERE id = $3`,
-		state.State, state.Data, state.ID)
+		`UPDATE conversation_states SET current_flow = $1, current_step = $2, payload = $3, updated_at = NOW()
+		 WHERE id = $4`,
+		state.Flow, state.Step, state.Payload, state.ID)
 	if err != nil {
 		return fmt.Errorf("update conversation state: %w", err)
 	}

@@ -411,96 +411,96 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Entidade ConversationState criada
-- [ ] ConversationStateRepository criado
-- [ ] Casos de uso de gerenciamento de estado criados
+- [x] Entidade ConversationState criada
+- [x] ConversationStateRepository criado
+- [x] Casos de uso de gerenciamento de estado criados
 
 ---
 
 ## Persistência
 
-- [ ] Tabela conversation_states criada
-- [ ] Migration criada
-- [ ] Persistência implementada
+- [x] Tabela conversation_states criada
+- [x] Migration criada
+- [x] Persistência implementada
 
 ---
 
 ## Estado Conversacional
 
-- [ ] Campo current_flow implementado
-- [ ] Campo current_step implementado
-- [ ] Campo payload implementado
+- [x] Campo current_flow implementado
+- [x] Campo current_step implementado
+- [x] Campo payload implementado
 
 ---
 
 ## Recuperação de Estado
 
-- [ ] Recuperação por usuário implementada
-- [ ] Continuidade de fluxo implementada
-- [ ] Retomada após reinício implementada
+- [x] Recuperação por usuário implementada
+- [x] Continuidade de fluxo implementada
+- [x] Retomada após reinício implementada
 
 ---
 
 ## Fluxos
 
-- [ ] Fluxo onboarding suportado
-- [ ] Fluxo register_pet suportado
-- [ ] Fluxo register_event preparado
+- [x] Fluxo onboarding suportado
+- [x] Fluxo register_pet suportado
+- [x] Fluxo register_event preparado
 
 ---
 
 ## Atualização de Estado
 
-- [ ] Atualização de etapas implementada
-- [ ] Atualização de payload implementada
-- [ ] Transição entre etapas implementada
+- [x] Atualização de etapas implementada
+- [x] Atualização de payload implementada
+- [x] Transição entre etapas implementada
 
 ---
 
 ## Finalização
 
-- [ ] Encerramento de fluxo implementado
-- [ ] Limpeza de estado implementada
-- [ ] Marcação de conclusão implementada
+- [x] Encerramento de fluxo implementado
+- [x] Limpeza de estado implementada
+- [x] Marcação de conclusão implementada
 
 ---
 
 ## Regras de Negócio
 
-- [ ] Usuário sem estado tratado
-- [ ] Usuário com estado tratado
-- [ ] Estado inválido tratado
+- [x] Usuário sem estado tratado
+- [x] Usuário com estado tratado
+- [x] Estado inválido tratado
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de fluxo iniciado implementado
-- [ ] Log de mudança de etapa implementado
-- [ ] Log de fluxo concluído implementado
+- [x] Log de fluxo iniciado implementado
+- [x] Log de mudança de etapa implementado
+- [x] Log de fluxo concluído implementado
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Estado inexistente tratado
-- [ ] Estado inválido tratado
-- [ ] Recuperação de fluxo implementada
+- [x] Estado inexistente tratado
+- [x] Estado inválido tratado
+- [x] Recuperação de fluxo implementada
 
 ---
 
 ## Testes
 
-- [ ] Testes de persistência implementados
-- [ ] Testes de recuperação implementados
-- [ ] Testes de continuidade implementados
-- [ ] Testes de finalização implementados
+- [x] Testes de persistência implementados
+- [x] Testes de recuperação implementados
+- [x] Testes de continuidade implementados
+- [x] Testes de finalização implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
-- [ ] Estado desacoplado do Telegram
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
+- [x] Estado desacoplado do Telegram

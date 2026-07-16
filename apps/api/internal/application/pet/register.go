@@ -3,7 +3,6 @@ package pet
 import (
 	"context"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"strconv"
 	"strings"
@@ -16,20 +15,31 @@ type PetRepository interface {
 	FindByUserID(ctx context.Context, userID string) ([]*domain.Pet, error)
 }
 
-type ConversationStateRepository interface {
-	Create(ctx context.Context, state *domain.ConversationState) error
-	FindByUserID(ctx context.Context, userID string) (*domain.ConversationState, error)
-	Update(ctx context.Context, state *domain.ConversationState) error
+type StateManager interface {
+	Start(ctx context.Context, userID, flow, step string, payload any) (*domain.ConversationState, error)
+	Get(ctx context.Context, userID string) (*domain.ConversationState, error)
+	Advance(ctx context.Context, userID, nextStep string, payload any) (*domain.ConversationState, error)
+	Complete(ctx context.Context, userID string) error
 }
 
 type Onboarder struct {
-	petRepo   PetRepository
-	stateRepo ConversationStateRepository
+	petRepo PetRepository
+	states  StateManager
 }
 
-func NewOnboarder(petRepo PetRepository, stateRepo ConversationStateRepository) *Onboarder {
-	return &Onboarder{petRepo: petRepo, stateRepo: stateRepo}
+func NewOnboarder(petRepo PetRepository, states StateManager) *Onboarder {
+	return &Onboarder{petRepo: petRepo, states: states}
 }
+
+const (
+	flowRegisterPet = "register_pet"
+
+	stepAskName   = "ask_name"
+	stepAskBreed  = "ask_breed"
+	stepAskAge    = "ask_age"
+	stepAskWeight = "ask_weight"
+	stepAskCity   = "ask_city"
+)
 
 type onboardingData struct {
 	Name   string  `json:"name,omitempty"`
@@ -48,19 +58,15 @@ func (o *Onboarder) Process(ctx context.Context, userID, text string) (reply str
 		return "", nil
 	}
 
-	state, err := o.stateRepo.FindByUserID(ctx, userID)
-	if err != nil && !errors.Is(err, domain.ErrNotFound) {
-		return "", fmt.Errorf("find state: %w", err)
+	state, err := o.states.Get(ctx, userID)
+	if err != nil {
+		return "", fmt.Errorf("get state: %w", err)
 	}
 
-	if errors.Is(err, domain.ErrNotFound) {
-		state = &domain.ConversationState{
-			UserID: userID,
-			State:  "onboarding_name",
-			Data:   []byte("{}"),
-		}
-		if err := o.stateRepo.Create(ctx, state); err != nil {
-			return "", fmt.Errorf("create state: %w", err)
+	if state == nil {
+		state, err = o.states.Start(ctx, userID, flowRegisterPet, stepAskName, onboardingData{})
+		if err != nil {
+			return "", fmt.Errorf("start state: %w", err)
 		}
 		return "Qual o nome do seu cão?", nil
 	}
@@ -70,37 +76,43 @@ func (o *Onboarder) Process(ctx context.Context, userID, text string) (reply str
 
 func (o *Onboarder) advance(ctx context.Context, state *domain.ConversationState, text string) (string, error) {
 	var data onboardingData
-	if len(state.Data) > 0 {
-		json.Unmarshal(state.Data, &data)
+	if len(state.Payload) > 0 {
+		json.Unmarshal(state.Payload, &data)
 	}
 
-	switch state.State {
-	case "onboarding_name":
+	switch state.Step {
+	case stepAskName:
 		if strings.TrimSpace(text) == "" {
 			return "Por favor, digite o nome do seu cão.", nil
 		}
 		data.Name = strings.TrimSpace(text)
-		state.State = "onboarding_breed"
-		return saveAndReply(ctx, o.stateRepo, state, data, "Qual a raça do "+data.Name+"?")
+		if _, err := o.states.Advance(ctx, state.UserID, stepAskBreed, data); err != nil {
+			return "", fmt.Errorf("advance to breed: %w", err)
+		}
+		return "Qual a raça do " + data.Name + "?", nil
 
-	case "onboarding_breed":
+	case stepAskBreed:
 		if strings.TrimSpace(text) == "" {
 			return "Por favor, digite a raça do seu cão.", nil
 		}
 		data.Breed = strings.TrimSpace(text)
-		state.State = "onboarding_age"
-		return saveAndReply(ctx, o.stateRepo, state, data, "Qual a idade do "+data.Name+"? (em anos)")
+		if _, err := o.states.Advance(ctx, state.UserID, stepAskAge, data); err != nil {
+			return "", fmt.Errorf("advance to age: %w", err)
+		}
+		return "Qual a idade do " + data.Name + "? (em anos)", nil
 
-	case "onboarding_age":
+	case stepAskAge:
 		age, err := strconv.Atoi(strings.TrimSpace(text))
 		if err != nil || age <= 0 || age > 40 {
 			return "Por favor, digite uma idade válida (número de 1 a 40).", nil
 		}
 		data.Age = age
-		state.State = "onboarding_weight"
-		return saveAndReply(ctx, o.stateRepo, state, data, "Qual o peso do "+data.Name+"? (em kg)")
+		if _, err := o.states.Advance(ctx, state.UserID, stepAskWeight, data); err != nil {
+			return "", fmt.Errorf("advance to weight: %w", err)
+		}
+		return "Qual o peso do " + data.Name + "? (em kg)", nil
 
-	case "onboarding_weight":
+	case stepAskWeight:
 		text = strings.TrimSpace(text)
 		text = strings.ReplaceAll(text, ",", ".")
 		weight, err := strconv.ParseFloat(text, 64)
@@ -108,10 +120,12 @@ func (o *Onboarder) advance(ctx context.Context, state *domain.ConversationState
 			return "Por favor, digite um peso válido (ex: 12.5).", nil
 		}
 		data.Weight = weight
-		state.State = "onboarding_city"
-		return saveAndReply(ctx, o.stateRepo, state, data, "Em qual cidade você mora?")
+		if _, err := o.states.Advance(ctx, state.UserID, stepAskCity, data); err != nil {
+			return "", fmt.Errorf("advance to city: %w", err)
+		}
+		return "Em qual cidade você mora?", nil
 
-	case "onboarding_city":
+	case stepAskCity:
 		if strings.TrimSpace(text) == "" {
 			return "Por favor, digite o nome da sua cidade.", nil
 		}
@@ -128,26 +142,12 @@ func (o *Onboarder) advance(ctx context.Context, state *domain.ConversationState
 		if err := o.petRepo.Create(ctx, pet); err != nil {
 			return "", fmt.Errorf("create pet: %w", err)
 		}
-
-		if err := o.stateRepo.Update(ctx, state); err != nil {
-			return "", fmt.Errorf("update state: %w", err)
+		if err := o.states.Complete(ctx, state.UserID); err != nil {
+			return "", fmt.Errorf("complete state: %w", err)
 		}
-
 		return "Perfeito 🐶\n\nCadastro do " + data.Name + " concluído com sucesso!", nil
 
 	default:
 		return "", nil
 	}
-}
-
-func saveAndReply(ctx context.Context, repo ConversationStateRepository, state *domain.ConversationState, data onboardingData, reply string) (string, error) {
-	encoded, err := json.Marshal(data)
-	if err != nil {
-		return "", fmt.Errorf("marshal data: %w", err)
-	}
-	state.Data = encoded
-	if err := repo.Update(ctx, state); err != nil {
-		return "", fmt.Errorf("update state: %w", err)
-	}
-	return reply, nil
 }
