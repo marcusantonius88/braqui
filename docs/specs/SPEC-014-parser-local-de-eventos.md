@@ -417,110 +417,110 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Estrutura do módulo `event` criada
-- [ ] Interface de parser criada
-- [ ] Implementação inicial do parser criada
+- [x] Estrutura do módulo `parser` criada
+- [x] Interface de parser criada (função pública `Parse`)
+- [x] Implementação inicial do parser criada
 
 ---
 
 ## Modelo de Resultado
 
-- [ ] Estrutura ParseResult criada
-- [ ] Campo type implementado
-- [ ] Campo confidence implementado
-- [ ] Campo payload implementado
+- [x] Estrutura ParseResult criada
+- [x] Campo type implementado
+- [x] Campo confidence implementado
+- [x] Campo payload implementado
 
 ---
 
 ## Tipos de Eventos
 
-- [ ] Evento vomit implementado
-- [ ] Evento diarrhea implementado
-- [ ] Evento itching implementado
-- [ ] Evento cough implementado
-- [ ] Evento fatigue implementado
-- [ ] Evento panting implementado
-- [ ] Evento medication_given implementado
-- [ ] Evento weight_update implementado
-- [ ] Evento vet_visit implementado
+- [x] Evento vomit implementado
+- [x] Evento diarrhea implementado
+- [x] Evento itching implementado
+- [x] Evento cough implementado
+- [x] Evento fatigue implementado
+- [x] Evento panting implementado
+- [x] Evento medication_given implementado
+- [x] Evento weight_update implementado
+- [x] Evento vet_visit implementado
 
 ---
 
 ## Regras de Matching
 
-- [ ] Matching por palavras-chave implementado
-- [ ] Matching por expressões implementado
-- [ ] Regras explícitas documentadas
+- [x] Matching por palavras-chave implementado
+- [x] Matching por expressões implementado
+- [x] Regras explícitas documentadas (em código)
 
 ---
 
 ## Vômito
 
-- [ ] Reconhecimento de "vomitou"
-- [ ] Reconhecimento de "vomitando"
-- [ ] Reconhecimento de "teve vômito"
+- [x] Reconhecimento de "vomitou"
+- [x] Reconhecimento de "vomitando"
+- [x] Reconhecimento de "teve vômito"
 
 ---
 
 ## Coceira
 
-- [ ] Reconhecimento de "coçando"
-- [ ] Reconhecimento de "muita coceira"
-- [ ] Reconhecimento de "coceira"
+- [x] Reconhecimento de "coçando"
+- [x] Reconhecimento de "muita coceira"
+- [x] Reconhecimento de "coceira"
 
 ---
 
 ## Ofegância
 
-- [ ] Reconhecimento de "ofegante"
-- [ ] Reconhecimento de "respiração acelerada"
+- [x] Reconhecimento de "ofegante"
+- [x] Reconhecimento de "respiração acelerada"
 
 ---
 
 ## Confiança
 
-- [ ] Nível HIGH implementado
-- [ ] Nível MEDIUM implementado
-- [ ] Nível LOW implementado
+- [x] Nível HIGH implementado
+- [x] Nível MEDIUM implementado
+- [x] Nível LOW implementado
 
 ---
 
 ## Fallback
 
-- [ ] Resultado NOT_MATCHED implementado
-- [ ] Encaminhamento para IA preparado
-- [ ] Integração com router preparada
+- [x] Resultado NOT_MATCHED implementado
+- [x] Encaminhamento para IA preparado (estrutura pronta para SPEC-015)
+- [x] Integração com router preparada (parser pode ser chamado pelo router)
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de evento identificado implementado
-- [ ] Log de confiança implementado
-- [ ] Log de falha de interpretação implementado
+- [x] Log de evento identificado implementado
+- [x] Log de confiança implementado
+- [x] Log de falha de interpretação implementado
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Mensagem vazia tratada
-- [ ] Evento desconhecido tratado
-- [ ] Falhas internas tratadas
+- [x] Mensagem vazia tratada
+- [x] Evento desconhecido tratado
+- [x] Falhas internas tratadas
 
 ---
 
 ## Testes
 
-- [ ] Testes de matching implementados
-- [ ] Testes de confiança implementados
-- [ ] Testes de fallback implementados
-- [ ] Testes de eventos suportados implementados
+- [x] Testes de matching implementados
+- [x] Testes de confiança implementados
+- [x] Testes de fallback implementados
+- [x] Testes de eventos suportados implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Parser desacoplado da IA
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
+- [x] Parser desacoplado da IA
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
