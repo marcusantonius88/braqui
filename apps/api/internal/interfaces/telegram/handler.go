@@ -15,8 +15,8 @@ type UserIdentificer interface {
 	Identify(ctx context.Context, telegramID int64, firstName, username string) (userID string, isNew bool, err error)
 }
 
-type Onboarder interface {
-	Process(ctx context.Context, userID, text string) (reply string, err error)
+type Router interface {
+	Route(ctx context.Context, userID, text string) (reply string, err error)
 }
 
 type Logger interface {
@@ -25,14 +25,14 @@ type Logger interface {
 }
 
 type Handler struct {
-	gateway   TelegramGateway
-	users     UserIdentificer
-	onboarder Onboarder
-	log       Logger
+	gateway TelegramGateway
+	users   UserIdentificer
+	router  Router
+	log     Logger
 }
 
-func NewHandler(gateway TelegramGateway, users UserIdentificer, onboarder Onboarder, log Logger) *Handler {
-	return &Handler{gateway: gateway, users: users, onboarder: onboarder, log: log}
+func NewHandler(gateway TelegramGateway, users UserIdentificer, router Router, log Logger) *Handler {
+	return &Handler{gateway: gateway, users: users, router: router, log: log}
 }
 
 type update struct {
@@ -98,9 +98,9 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	reply, err := h.onboarder.Process(r.Context(), userID, text)
+	reply, err := h.router.Route(r.Context(), userID, text)
 	if err != nil {
-		h.log.Error("onboarding error", map[string]any{"user_id": userID, "error": err.Error()})
+		h.log.Error("router error", map[string]any{"user_id": userID, "error": err.Error()})
 		http.Error(w, "internal error", http.StatusInternalServerError)
 		return
 	}
@@ -109,29 +109,8 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		if err := h.gateway.SendMessage(r.Context(), chatID, reply); err != nil {
 			h.log.Error("failed to send message", map[string]any{"chat_id": chatID, "error": err.Error()})
 		}
-		w.WriteHeader(http.StatusOK)
-		json.NewEncoder(w).Encode(map[string]string{"status": "ok"})
-		return
-	}
-
-	reply = h.processCommand(text)
-	if reply != "" {
-		if err := h.gateway.SendMessage(r.Context(), chatID, reply); err != nil {
-			h.log.Error("failed to send message", map[string]any{"chat_id": chatID, "error": err.Error()})
-		}
 	}
 
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(map[string]string{"status": "ok"})
-}
-
-func (h *Handler) processCommand(text string) string {
-	switch text {
-	case "/start":
-		return "Olá! Use /help para ver os comandos disponíveis."
-	case "/help":
-		return "Comandos disponíveis:\n/start - Iniciar conversa\n/help - Mostrar esta ajuda"
-	default:
-		return ""
-	}
 }

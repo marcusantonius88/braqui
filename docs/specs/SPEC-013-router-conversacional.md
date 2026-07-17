@@ -368,94 +368,94 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Estrutura `/router` criada
-- [ ] Interface ConversationRouter criada
-- [ ] Implementação inicial do router criada
+- [x] Estrutura `/router` criada
+- [x] Interface ConversationRouter criada
+- [x] Implementação inicial do router criada
 
 ---
 
 ## Fluxo Principal
 
-- [ ] Recebimento de mensagens integrado
-- [ ] Encaminhamento para router implementado
-- [ ] Pipeline de roteamento criado
+- [x] Recebimento de mensagens integrado
+- [x] Encaminhamento para router implementado
+- [x] Pipeline de roteamento criado
 
 ---
 
 ## Estado Conversacional
 
-- [ ] Integração com ConversationState implementada
-- [ ] Prioridade para fluxo ativo implementada
-- [ ] Continuidade de onboarding implementada
+- [x] Integração com ConversationState implementada
+- [x] Prioridade para fluxo ativo implementada
+- [x] Continuidade de onboarding implementada
 
 ---
 
 ## Comandos
 
-- [ ] Roteamento de `/start` implementado
-- [ ] Roteamento de `/help` implementado
-- [ ] Estrutura para novos comandos criada
+- [x] Roteamento de `/start` implementado
+- [x] Roteamento de `/help` implementado
+- [x] Estrutura para novos comandos criada
 
 ---
 
 ## Fluxo Padrão
 
-- [ ] Tratamento de mensagens sem contexto implementado
-- [ ] Fallback padrão implementado
+- [x] Tratamento de mensagens sem contexto implementado
+- [x] Fallback padrão implementado
 
 ---
 
 ## Registro de Eventos
 
-- [ ] Estrutura para register_event preparada
-- [ ] Integração futura documentada
+- [x] Estrutura para register_event preparada
+- [x] Integração futura documentada
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Fluxo desconhecido tratado
-- [ ] Estado inconsistente tratado
-- [ ] Mensagens amigáveis implementadas
+- [x] Fluxo desconhecido tratado
+- [x] Estado inconsistente tratado
+- [x] Mensagens amigáveis implementadas
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de rota selecionada implementado
-- [ ] Log de fluxo ativo implementado
-- [ ] Log de erro de roteamento implementado
+- [x] Log de rota selecionada implementado
+- [x] Log de fluxo ativo implementado
+- [x] Log de erro de roteamento implementado
 
 ---
 
 ## Arquitetura
 
-- [ ] Router desacoplado do domínio
-- [ ] Router desacoplado da persistência
-- [ ] Router desacoplado de APIs externas
+- [x] Router desacoplado do domínio
+- [x] Router desacoplado da persistência
+- [x] Router desacoplado de APIs externas
 
 ---
 
 ## Extensibilidade
 
-- [ ] Estrutura preparada para novos fluxos
-- [ ] Estrutura preparada para múltiplos canais
-- [ ] Estrutura preparada para IA futura
+- [x] Estrutura preparada para novos fluxos
+- [x] Estrutura preparada para múltiplos canais
+- [x] Estrutura preparada para IA futura
 
 ---
 
 ## Testes
 
-- [ ] Testes de roteamento implementados
-- [ ] Testes de prioridade de estado implementados
-- [ ] Testes de comandos implementados
-- [ ] Testes de fallback implementados
+- [x] Testes de roteamento implementados
+- [x] Testes de prioridade de estado implementados
+- [x] Testes de comandos implementados
+- [x] Testes de fallback implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
-- [ ] Crescimento incremental validado
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
+- [x] Crescimento incremental validado
