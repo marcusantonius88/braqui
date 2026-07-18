@@ -380,99 +380,99 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Estrutura `/infra/ai` criada
-- [ ] Interface AIProvider criada
-- [ ] Contratos de interpretação criados
+- [x] Estrutura `/infra/ai` criada
+- [x] Interface AIProvider criada
+- [x] Contratos de interpretação criados
 
 ---
 
 ## Gemini
 
-- [ ] GeminiProvider criado
-- [ ] Cliente Gemini configurado
-- [ ] Integração com API Gemini funcionando
+- [x] GeminiProvider criado
+- [x] Cliente Gemini configurado
+- [x] Integração com API Gemini funcionando
 
 ---
 
 ## Configuração
 
-- [ ] GEMINI_API_KEY configurada
-- [ ] Integração com Config implementada
-- [ ] Variáveis de ambiente documentadas
+- [x] GEMINI_API_KEY configurada
+- [x] Integração com Config implementada
+- [x] Variáveis de ambiente documentadas
 
 ---
 
 ## Modelo de Resposta
 
-- [ ] InterpretationResult criado
-- [ ] Campo type implementado
-- [ ] Campo confidence implementado
-- [ ] Campo payload implementado
+- [x] InterpretationResult criado
+- [x] Campo type implementado
+- [x] Campo confidence implementado
+- [x] Campo payload implementado
 
 ---
 
 ## Prompting
 
-- [ ] Prompt determinístico criado
-- [ ] Prompt focado em classificação criado
-- [ ] Resposta JSON padronizada implementada
+- [x] Prompt determinístico criado
+- [x] Prompt focado em classificação criado
+- [x] Resposta JSON padronizada implementada
 
 ---
 
 ## Integração com Parser
 
-- [ ] Acionamento após NOT_MATCHED implementado
-- [ ] Integração com Router preparada
-- [ ] Integração com Registro de Eventos preparada
+- [ ] Acionamento após NOT_MATCHED implementado (SPEC-016)
+- [ ] Integração com Router preparada (SPEC-016)
+- [ ] Integração com Registro de Eventos preparada (SPEC-016)
 
 ---
 
 ## Timeout
 
-- [ ] Timeout configurado
-- [ ] Cancelamento por contexto implementado
-- [ ] Tratamento de timeout implementado
+- [x] Timeout configurado
+- [x] Cancelamento por contexto implementado
+- [x] Tratamento de timeout implementado
 
 ---
 
 ## Fallback
 
-- [ ] Resultado NOT_INTERPRETED implementado
-- [ ] Tratamento de falha do provider implementado
-- [ ] Tratamento de resposta inválida implementado
+- [x] Resultado NOT_INTERPRETED implementado
+- [x] Tratamento de falha do provider implementado
+- [x] Tratamento de resposta inválida implementado
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de chamada para IA implementado
-- [ ] Log de sucesso implementado
-- [ ] Log de falha implementado
-- [ ] Log de latência implementado
+- [x] Log de chamada para IA implementado
+- [x] Log de sucesso implementado
+- [x] Log de falha implementado
+- [x] Log de latência implementado
 
 ---
 
 ## Segurança
 
-- [ ] API Key protegida
-- [ ] Prompts sensíveis protegidos
-- [ ] Dados pessoais minimizados
+- [x] API Key protegida
+- [x] Prompts sensíveis protegidos
+- [x] Dados pessoais minimizados
 
 ---
 
 ## Testes
 
-- [ ] Mock de AIProvider criado
-- [ ] Testes do GeminiProvider implementados
-- [ ] Testes de timeout implementados
-- [ ] Testes de fallback implementados
+- [x] Mock de AIProvider criado
+- [x] Testes do GeminiProvider implementados
+- [x] Testes de timeout implementados
+- [x] Testes de fallback implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Provider desacoplado do domínio
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
-- [ ] Gemini facilmente substituível
+- [x] Provider desacoplado do domínio
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
+- [x] Gemini facilmente substituível
