@@ -152,7 +152,7 @@ func TestEventRepository_CRUD(t *testing.T) {
 		t.Fatalf("create pet: %v", err)
 	}
 
-	event := &domain.Event{PetID: pet.ID, Type: "feeding", Description: "comeu ração", Timestamp: time.Now()}
+	event := &domain.Event{PetID: pet.ID, Type: "feeding", Description: "comeu ração", Source: "manual", Timestamp: time.Now()}
 	if err := eventRepo.Create(ctx, event); err != nil {
 		t.Fatalf("create event: %v", err)
 	}

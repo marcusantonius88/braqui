@@ -10,6 +10,7 @@ type Event struct {
 	PetID       string
 	Type        string
 	Description string
+	Source      string
 	Timestamp   time.Time
 	CreatedAt   time.Time
 }

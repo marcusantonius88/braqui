@@ -27,6 +27,7 @@ CREATE TABLE events (
     pet_id      UUID         NOT NULL REFERENCES pets(id) ON DELETE CASCADE,
     type        VARCHAR(50)  NOT NULL,
     description TEXT         NOT NULL DEFAULT '',
+    source      VARCHAR(20)  NOT NULL DEFAULT 'manual',
     timestamp   TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
     created_at  TIMESTAMPTZ  NOT NULL DEFAULT NOW()
 );

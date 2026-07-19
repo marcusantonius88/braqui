@@ -145,6 +145,9 @@ func TestManager_Complete(t *testing.T) {
 	if s.Step != "" {
 		t.Fatalf("expected empty step after complete, got %s", s.Step)
 	}
+	if s.Flow != "" {
+		t.Fatalf("expected empty flow after complete, got %s", s.Flow)
+	}
 }
 
 func TestManager_Complete_NotFound(t *testing.T) {

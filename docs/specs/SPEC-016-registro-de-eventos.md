@@ -375,98 +375,98 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Entidade Event criada
-- [ ] EventRepository criado
-- [ ] Casos de uso de registro criados
+- [x] Entidade Event criada
+- [x] EventRepository criado
+- [x] Casos de uso de registro criados
 
 ---
 
 ## Persistência
 
-- [ ] Tabela events criada
-- [ ] Migration de events criada
-- [ ] Persistência implementada
+- [x] Tabela events criada
+- [x] Migration de events criada
+- [x] Persistência implementada
 
 ---
 
 ## Modelo de Evento
 
-- [ ] Campo pet_id implementado
-- [ ] Campo type implementado
-- [ ] Campo description implementado
-- [ ] Campo source implementado
-- [ ] Campo created_at implementado
+- [x] Campo pet_id implementado
+- [x] Campo type implementado
+- [x] Campo description implementado
+- [x] Campo source implementado
+- [x] Campo created_at implementado
 
 ---
 
 ## Tipos de Evento
 
-- [ ] Tipo vomit suportado
-- [ ] Tipo itching suportado
-- [ ] Tipo panting suportado
-- [ ] Tipo medication_given suportado
-- [ ] Tipo vet_visit suportado
+- [x] Tipo vomit suportado
+- [x] Tipo itching suportado
+- [x] Tipo panting suportado
+- [x] Tipo medication_given suportado
+- [x] Tipo vet_visit suportado
 
 ---
 
 ## Associação
 
-- [ ] Associação Pet → Event implementada
-- [ ] Validação de pet existente implementada
+- [x] Associação Pet → Event implementada
+- [x] Validação de pet existente implementada
 
 ---
 
 ## Registro
 
-- [ ] Registro via parser implementado
-- [ ] Registro via IA implementado
-- [ ] Registro manual preparado
+- [x] Registro via parser implementado
+- [x] Registro via IA implementado
+- [x] Registro manual preparado
 
 ---
 
 ## Histórico
 
-- [ ] Ordenação temporal implementada
-- [ ] Consulta de histórico implementada
-- [ ] Recuperação de eventos implementada
+- [x] Ordenação temporal implementada
+- [x] Consulta de histórico implementada
+- [x] Recuperação de eventos implementada
 
 ---
 
 ## Imutabilidade
 
-- [ ] Eventos protegidos contra edição
-- [ ] Estratégia de correção documentada
+- [x] Eventos protegidos contra edição
+- [x] Estratégia de correção documentada
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de criação de evento implementado
-- [ ] Log de falha de persistência implementado
-- [ ] Log de origem do evento implementado
+- [x] Log de criação de evento implementado
+- [x] Log de falha de persistência implementado
+- [x] Log de origem do evento implementado
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Evento inválido tratado
-- [ ] Falha de persistência tratada
-- [ ] Mensagens amigáveis implementadas
+- [x] Evento inválido tratado
+- [x] Falha de persistência tratada
+- [x] Mensagens amigáveis implementadas
 
 ---
 
 ## Testes
 
-- [ ] Testes de criação implementados
-- [ ] Testes de persistência implementados
-- [ ] Testes de associação implementados
-- [ ] Testes de histórico implementados
+- [x] Testes de criação implementados
+- [x] Testes de persistência implementados
+- [x] Testes de associação implementados
+- [x] Testes de histórico implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
-- [ ] Registro desacoplado da origem do evento
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
+- [x] Registro desacoplado da origem do evento

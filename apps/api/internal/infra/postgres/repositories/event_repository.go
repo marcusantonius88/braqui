@@ -19,19 +19,19 @@ func NewEventRepository(pool *pgxpool.Pool) *EventRepository {
 
 func (r *EventRepository) Create(ctx context.Context, event *domain.Event) error {
 	return r.pool.QueryRow(ctx,
-		`INSERT INTO events (pet_id, type, description, timestamp)
-		 VALUES ($1, $2, $3, $4)
+		`INSERT INTO events (pet_id, type, description, source, timestamp)
+		 VALUES ($1, $2, $3, $4, $5)
 		 RETURNING id, created_at`,
-		event.PetID, event.Type, event.Description, event.Timestamp,
+		event.PetID, event.Type, event.Description, event.Source, event.Timestamp,
 	).Scan(&event.ID, &event.CreatedAt)
 }
 
 func (r *EventRepository) FindByID(ctx context.Context, id string) (*domain.Event, error) {
 	event := &domain.Event{}
 	err := r.pool.QueryRow(ctx,
-		`SELECT id, pet_id, type, description, timestamp, created_at
+		`SELECT id, pet_id, type, description, source, timestamp, created_at
 		 FROM events WHERE id = $1`, id,
-	).Scan(&event.ID, &event.PetID, &event.Type, &event.Description, &event.Timestamp, &event.CreatedAt)
+	).Scan(&event.ID, &event.PetID, &event.Type, &event.Description, &event.Source, &event.Timestamp, &event.CreatedAt)
 	if err != nil {
 		if err == pgx.ErrNoRows {
 			return nil, domain.ErrNotFound
@@ -43,7 +43,7 @@ func (r *EventRepository) FindByID(ctx context.Context, id string) (*domain.Even
 
 func (r *EventRepository) FindByPetID(ctx context.Context, petID string) ([]*domain.Event, error) {
 	rows, err := r.pool.Query(ctx,
-		`SELECT id, pet_id, type, description, timestamp, created_at
+		`SELECT id, pet_id, type, description, source, timestamp, created_at
 		 FROM events WHERE pet_id = $1 ORDER BY timestamp DESC`, petID)
 	if err != nil {
 		return nil, fmt.Errorf("find events by pet id: %w", err)
@@ -53,7 +53,7 @@ func (r *EventRepository) FindByPetID(ctx context.Context, petID string) ([]*dom
 	var events []*domain.Event
 	for rows.Next() {
 		event := &domain.Event{}
-		if err := rows.Scan(&event.ID, &event.PetID, &event.Type, &event.Description, &event.Timestamp, &event.CreatedAt); err != nil {
+		if err := rows.Scan(&event.ID, &event.PetID, &event.Type, &event.Description, &event.Source, &event.Timestamp, &event.CreatedAt); err != nil {
 			return nil, fmt.Errorf("scan event: %w", err)
 		}
 		events = append(events, event)

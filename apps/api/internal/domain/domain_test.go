@@ -50,6 +50,7 @@ func TestEventCreation(t *testing.T) {
 		PetID:       "pet-1",
 		Type:        "feeding",
 		Description: "comeu ração",
+		Source:      "manual",
 		Timestamp:   time.Now(),
 	}
 	if e.Type != "feeding" {
@@ -57,6 +58,9 @@ func TestEventCreation(t *testing.T) {
 	}
 	if e.Description != "comeu ração" {
 		t.Fatalf("expected comeu ração, got %s", e.Description)
+	}
+	if e.Source != "manual" {
+		t.Fatalf("expected manual, got %s", e.Source)
 	}
 }
 

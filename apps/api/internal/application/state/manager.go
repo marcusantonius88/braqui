@@ -87,6 +87,7 @@ func (m *Manager) Complete(ctx context.Context, userID string) error {
 		return fmt.Errorf("find state for complete: %w", err)
 	}
 	flow := state.Flow
+	state.Flow = ""
 	state.Step = ""
 	if err := m.repo.Update(ctx, state); err != nil {
 		m.log.Error("failed to complete state", map[string]any{"user_id": userID, "error": err.Error()})
