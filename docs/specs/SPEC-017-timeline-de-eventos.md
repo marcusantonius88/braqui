@@ -395,91 +395,91 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] TimelineService criado
-- [ ] Casos de uso de consulta criados
-- [ ] Integração com EventRepository criada
+- [x] TimelineService criado
+- [x] Casos de uso de consulta criados
+- [x] Integração com EventRepository criada
 
 ---
 
 ## Consulta
 
-- [ ] Consulta dos últimos eventos implementada
-- [ ] Limite inicial de 10 eventos implementado
-- [ ] Recuperação por pet implementada
+- [x] Consulta dos últimos eventos implementada
+- [x] Limite inicial de 10 eventos implementado
+- [x] Recuperação por pet implementada
 
 ---
 
 ## Ordenação
 
-- [ ] Ordenação por created_at DESC implementada
-- [ ] Ordenação validada por testes
+- [x] Ordenação por created_at DESC implementada
+- [x] Ordenação validada por testes
 
 ---
 
 ## Formatação
 
-- [ ] Formatação amigável implementada
-- [ ] Conversão de tipos de eventos implementada
-- [ ] Conversão de datas relativas implementada
+- [x] Formatação amigável implementada
+- [x] Conversão de tipos de eventos implementada
+- [x] Conversão de datas relativas implementada
 
 ---
 
 ## Tipos de Evento
 
-- [ ] Exibição de vomit implementada
-- [ ] Exibição de itching implementada
-- [ ] Exibição de panting implementada
-- [ ] Exibição de fatigue implementada
-- [ ] Exibição de cough implementada
-- [ ] Exibição de diarrhea implementada
-- [ ] Exibição de medication_given implementada
-- [ ] Exibição de vet_visit implementada
+- [x] Exibição de vomit implementada
+- [x] Exibição de itching implementada
+- [x] Exibição de panting implementada
+- [x] Exibição de fatigue implementada
+- [x] Exibição de cough implementada
+- [x] Exibição de diarrhea implementada
+- [x] Exibição de medication_given implementada
+- [x] Exibição de vet_visit implementada
 
 ---
 
 ## Fluxo Conversacional
 
-- [ ] Comando "histórico" implementado
-- [ ] Comando "timeline" implementado
-- [ ] Comando "últimos eventos" implementado
+- [x] Comando "histórico" implementado
+- [x] Comando "timeline" implementado
+- [x] Comando "últimos eventos" implementado
 
 ---
 
 ## Integração com Router
 
-- [ ] Roteamento para timeline implementado
-- [ ] Fluxo de consulta integrado
+- [x] Roteamento para timeline implementado
+- [x] Fluxo de consulta integrado
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Cenário sem eventos implementado
-- [ ] Falha de consulta tratada
-- [ ] Mensagens amigáveis implementadas
+- [x] Cenário sem eventos implementado
+- [x] Falha de consulta tratada
+- [x] Mensagens amigáveis implementadas
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de consulta implementado
-- [ ] Log de quantidade de eventos retornados implementado
-- [ ] Log de falha de consulta implementado
+- [x] Log de consulta implementado
+- [x] Log de quantidade de eventos retornados implementado
+- [x] Log de falha de consulta implementado
 
 ---
 
 ## Testes
 
-- [ ] Testes de consulta implementados
-- [ ] Testes de ordenação implementados
-- [ ] Testes de formatação implementados
-- [ ] Testes de cenários sem eventos implementados
+- [x] Testes de consulta implementados
+- [x] Testes de ordenação implementados
+- [x] Testes de formatação implementados
+- [x] Testes de cenários sem eventos implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Timeline desacoplada da persistência
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
+- [x] Timeline desacoplada da persistência
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
