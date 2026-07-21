@@ -373,99 +373,99 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Estrutura `/scheduler` criada
-- [ ] Scheduler principal criado
-- [ ] Interface Job criada
-- [ ] Registry de jobs criado
+- [x] Estrutura `/scheduler` criada
+- [x] Scheduler principal criado
+- [x] Interface Job criada
+- [x] Registry de jobs criado
 
 ---
 
 ## Inicialização
 
-- [ ] Scheduler inicia automaticamente
-- [ ] Integração com bootstrap implementada
-- [ ] Shutdown gracioso implementado
+- [x] Scheduler inicia automaticamente
+- [x] Integração com bootstrap implementada
+- [x] Shutdown gracioso implementado
 
 ---
 
 ## Configuração
 
-- [ ] Variável `SCHEDULER_ENABLED` implementada
-- [ ] Scheduler pode ser desabilitado
-- [ ] Configuração integrada ao Config Loader
+- [x] Variável `SCHEDULER_ENABLED` implementada
+- [x] Scheduler pode ser desabilitado
+- [x] Configuração integrada ao Config Loader
 
 ---
 
 ## Registro de Jobs
 
-- [ ] Registro de jobs implementado
-- [ ] Mecanismo de descoberta/configuração implementado
-- [ ] Execução periódica configurável
+- [x] Registro de jobs implementado
+- [x] Mecanismo de descoberta/configuração implementado
+- [x] Execução periódica configurável
 
 ---
 
 ## Frequências
 
-- [ ] Execução horária suportada
-- [ ] Execução diária suportada
-- [ ] Execução semanal suportada
+- [x] Execução horária suportada
+- [x] Execução diária suportada
+- [x] Execução semanal suportada
 
 ---
 
 ## Jobs Iniciais
 
-- [ ] Estrutura para ReminderJob criada
-- [ ] Estrutura para WeeklySummaryJob criada
-- [ ] Estrutura para ClimateAlertJob criada
+- [x] Estrutura para ReminderJob criada
+- [x] Estrutura para WeeklySummaryJob criada
+- [x] Estrutura para ClimateAlertJob criada
 
 ---
 
 ## Execução
 
-- [ ] Execução isolada de jobs implementada
-- [ ] Execução concorrente avaliada/implementada
-- [ ] Proteção contra falha global implementada
+- [x] Execução isolada de jobs implementada
+- [x] Execução concorrente avaliada/implementada
+- [x] Proteção contra falha global implementada
 
 ---
 
 ## Tratamento de Falhas
 
-- [ ] Falha de job não derruba aplicação
-- [ ] Falha de job não interrompe outros jobs
-- [ ] Tratamento de panic implementado
+- [x] Falha de job não derruba aplicação
+- [x] Falha de job não interrompe outros jobs
+- [x] Tratamento de panic implementado
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de job iniciado implementado
-- [ ] Log de job concluído implementado
-- [ ] Log de job falhou implementado
-- [ ] Log de duração implementado
+- [x] Log de job iniciado implementado
+- [x] Log de job concluído implementado
+- [x] Log de job falhou implementado
+- [x] Log de duração implementado
 
 ---
 
 ## Segurança
 
-- [ ] Dados sensíveis removidos dos logs
-- [ ] Payloads protegidos
-- [ ] Execuções auditáveis
+- [x] Dados sensíveis removidos dos logs
+- [x] Payloads protegidos
+- [x] Execuções auditáveis
 
 ---
 
 ## Testes
 
-- [ ] Testes do scheduler implementados
-- [ ] Testes de registro de jobs implementados
-- [ ] Testes de execução implementados
-- [ ] Testes de falha implementados
+- [x] Testes do scheduler implementados
+- [x] Testes de registro de jobs implementados
+- [x] Testes de execução implementados
+- [x] Testes de falha implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Scheduler desacoplado das funcionalidades
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
-- [ ] Base preparada para novos jobs futuros
+- [x] Scheduler desacoplado das funcionalidades
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
+- [x] Base preparada para novos jobs futuros
