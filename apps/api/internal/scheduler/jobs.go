@@ -82,9 +82,26 @@ func (j *WeeklySummaryJob) Execute(_ context.Context) error {
 	return nil
 }
 
-type ClimateAlertJob struct{}
+type ClimateService interface {
+	CheckAndAlert(ctx context.Context) error
+}
+
+type ClimateAlertJob struct {
+	svc ClimateService
+	log Logger
+}
+
+func NewClimateAlertJob(svc ClimateService, log Logger) *ClimateAlertJob {
+	return &ClimateAlertJob{svc: svc, log: log}
+}
 
 func (j *ClimateAlertJob) Name() string { return "climate_alert" }
-func (j *ClimateAlertJob) Execute(_ context.Context) error {
+
+func (j *ClimateAlertJob) Execute(ctx context.Context) error {
+	j.log.Info("climate alert job started", nil)
+	if err := j.svc.CheckAndAlert(ctx); err != nil {
+		return fmt.Errorf("climate alert: %w", err)
+	}
+	j.log.Info("climate alert job finished", nil)
 	return nil
 }

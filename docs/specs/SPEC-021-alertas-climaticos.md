@@ -376,95 +376,95 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Estrutura `/climate` criada
-- [ ] Interface ClimateProvider criada
-- [ ] Casos de uso climáticos criados
+- [x] Estrutura `/climate` criada (`internal/climate/`)
+- [x] Interface ClimateProvider criada (`Provider`)
+- [x] Casos de uso climáticos criados (`Service.CheckAndAlert`)
 
 ---
 
 ## OpenWeather
 
-- [ ] Cliente OpenWeather criado
-- [ ] Integração com API implementada
-- [ ] OPENWEATHER_API_KEY configurada
+- [x] Cliente OpenWeather criado (`OpenWeatherProvider`)
+- [x] Integração com API implementada (REST via net/http, units=metric)
+- [x] OPENWEATHER_API_KEY configurada (config + .env.example + docker-compose)
 
 ---
 
 ## Dados Climáticos
 
-- [ ] Consulta de temperatura implementada
-- [ ] Consulta de umidade implementada
-- [ ] Modelo WeatherData criado
+- [x] Consulta de temperatura implementada
+- [x] Consulta de umidade implementada
+- [x] Modelo WeatherData criado (Temperature, Humidity, City)
 
 ---
 
 ## Regras de Risco
 
-- [ ] Regra de calor elevado (>= 30°C) implementada
-- [ ] Regra de calor crítico (>= 35°C) implementada
-- [ ] Estrutura para novas regras preparada
+- [x] Regra de calor elevado (>= 30°C) implementada (RiskHigh)
+- [x] Regra de calor crítico (>= 35°C) implementada (RiskCritical)
+- [x] Estrutura para novas regras preparada (RiskLevel enum + EvaluateRisk)
 
 ---
 
 ## Localização
 
-- [ ] Integração com Pet.city implementada
-- [ ] Tratamento de ausência de cidade implementado
-- [ ] Tratamento de cidade inválida implementado
+- [x] Integração com Pet.city implementada (via PetRepository.FindAllWithLocation)
+- [x] Tratamento de ausência de cidade implementado (pula pets sem city)
+- [x] Tratamento de cidade inválida implementado (erro OpenWeather → log)
 
 ---
 
 ## Alertas
 
-- [ ] Template de alerta criado
-- [ ] Geração de alerta implementada
-- [ ] Envio via Telegram implementado
+- [x] Template de alerta criado (FormatAlert)
+- [x] Geração de alerta implementada
+- [x] Envio via Telegram implementado
 
 ---
 
 ## Scheduler
 
-- [ ] Integração com ClimateAlertJob implementada
-- [ ] Execução diária implementada
+- [x] Integração com ClimateAlertJob implementada
+- [x] Execução diária implementada (frequência Daily)
 
 ---
 
 ## Anti-Spam
 
-- [ ] Controle de alerta diário implementado
-- [ ] Evitar alertas duplicados implementado
+- [x] Controle de alerta diário implementado (alertedToday map[string]string)
+- [x] Evitar alertas duplicados implementado (mesmo pet ignorado se já alertado hoje)
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de consulta climática implementado
-- [ ] Log de alerta enviado implementado
-- [ ] Log de falha implementado
+- [x] Log de consulta climática implementado (erro/sucesso)
+- [x] Log de alerta enviado implementado
+- [x] Log de falha implementado
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Falha do provider tratada
-- [ ] Falha de envio tratada
-- [ ] Recuperação operacional implementada
+- [x] Falha do provider tratada (log + continue)
+- [x] Falha de envio tratada (log + continue)
+- [x] Recuperação operacional implementada (panic recovery do scheduler)
 
 ---
 
 ## Testes
 
-- [ ] Mock de ClimateProvider criado
-- [ ] Testes de regras climáticas implementados
-- [ ] Testes de geração de alertas implementados
-- [ ] Testes de integração implementados
+- [x] Mock de ClimateProvider criado (mockWeatherProvider)
+- [x] Testes de regras climáticas implementados (RiskLevel thresholds)
+- [x] Testes de geração de alertas implementados (FormatAssert)
+- [x] Testes de integração implementados (end-to-end com Docker: job roda, logs corretos, app não quebra)
 
 ---
 
 ## Qualidade
 
-- [ ] ClimateProvider desacoplado do domínio
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
-- [ ] Base preparada para novas regras climáticas
+- [x] ClimateProvider desacoplado do domínio (interface local em climate/)
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
+- [x] Base preparada para novas regras climáticas (RiskLevel enum + EvaluateRisk switch)
