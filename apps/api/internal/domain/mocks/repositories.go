@@ -184,6 +184,33 @@ func (r *ReminderRepository) FindByPetID(ctx context.Context, petID string) ([]*
 	return result, nil
 }
 
+func (r *ReminderRepository) FindPendingDueBefore(_ context.Context, due time.Time) ([]*domain.Reminder, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	var result []*domain.Reminder
+	for _, rem := range r.reminders {
+		if rem.Status == domain.ReminderStatusPending && !rem.DueDate.After(due) {
+			result = append(result, rem)
+		}
+	}
+	if result == nil {
+		return []*domain.Reminder{}, nil
+	}
+	return result, nil
+}
+
+func (r *ReminderRepository) UpdateStatus(_ context.Context, id, status string) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	rem, ok := r.reminders[id]
+	if !ok {
+		return domain.ErrNotFound
+	}
+	rem.Status = status
+	rem.UpdatedAt = time.Now()
+	return nil
+}
+
 type ConversationStateRepository struct {
 	mu     sync.Mutex
 	states map[string]*domain.ConversationState

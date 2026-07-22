@@ -66,14 +66,17 @@ func TestEventCreation(t *testing.T) {
 
 func TestReminderCreation(t *testing.T) {
 	r := &Reminder{
-		PetID:          "pet-1",
-		Type:           "medication",
-		Description:    "antipulga",
-		DueDate:        time.Now(),
-		RepeatInterval: "30d",
+		PetID:       "pet-1",
+		Title:       "Dar Simparic",
+		Description: "antipulga",
+		DueDate:     time.Now(),
+		Status:      ReminderStatusPending,
 	}
-	if r.RepeatInterval != "30d" {
-		t.Fatalf("expected 30d, got %s", r.RepeatInterval)
+	if r.Title != "Dar Simparic" {
+		t.Fatalf("expected Dar Simparic, got %s", r.Title)
+	}
+	if r.Status != ReminderStatusPending {
+		t.Fatalf("expected pending, got %s", r.Status)
 	}
 }
 

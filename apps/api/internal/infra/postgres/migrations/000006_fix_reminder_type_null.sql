@@ -1,0 +1,5 @@
+ALTER TABLE reminders
+    ALTER COLUMN type DROP NOT NULL,
+    ALTER COLUMN type SET DEFAULT NULL,
+    ALTER COLUMN repeat_interval DROP NOT NULL,
+    ALTER COLUMN repeat_interval SET DEFAULT NULL;

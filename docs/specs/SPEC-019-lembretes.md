@@ -390,112 +390,112 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Entidade Reminder criada
-- [ ] ReminderRepository criado
-- [ ] Casos de uso de lembretes criados
+- [x] Entidade Reminder criada
+- [x] ReminderRepository criado
+- [x] Casos de uso de lembretes criados
 
 ---
 
 ## Persistência
 
-- [ ] Tabela reminders criada
-- [ ] Migration de reminders criada
-- [ ] Persistência implementada
+- [x] Tabela reminders criada
+- [x] Migration de reminders criada
+- [x] Persistência implementada
 
 ---
 
 ## Modelo de Dados
 
-- [ ] Campo pet_id implementado
-- [ ] Campo title implementado
-- [ ] Campo description implementado
-- [ ] Campo due_at implementado
-- [ ] Campo status implementado
+- [x] Campo pet_id implementado
+- [x] Campo title implementado
+- [x] Campo description implementado
+- [x] Campo due_at implementado
+- [x] Campo status implementado
 
 ---
 
 ## Status
 
-- [ ] Status pending implementado
-- [ ] Status completed implementado
-- [ ] Status cancelled implementado
+- [x] Status pending implementado
+- [x] Status completed implementado
+- [x] Status cancelled implementado
 
 ---
 
 ## Criação de Lembretes
 
-- [ ] Fluxo conversacional implementado
-- [ ] Criação manual implementada
-- [ ] Validação de dados implementada
+- [x] Fluxo conversacional implementado
+- [x] Criação manual implementada
+- [x] Validação de dados implementada
 
 ---
 
 ## Interpretação de Datas
 
-- [ ] Suporte a "amanhã"
-- [ ] Suporte a datas explícitas
-- [ ] Validação de datas implementada
+- [x] Suporte a "amanhã"
+- [x] Suporte a datas explícitas (dia X, daqui a X dias, em X dias)
+- [x] Validação de datas implementada
 
 ---
 
 ## Integração com Scheduler
 
-- [ ] Consulta de lembretes pendentes implementada
-- [ ] Execução automática implementada
-- [ ] Integração com jobs implementada
+- [x] Consulta de lembretes pendentes implementada
+- [x] Execução automática implementada
+- [x] Integração com jobs implementada
 
 ---
 
 ## Integração com Telegram
 
-- [ ] Envio de lembrete implementado
-- [ ] Template de mensagem implementado
-- [ ] Tratamento de falhas implementado
+- [x] Envio de lembrete implementado
+- [x] Template de mensagem implementado
+- [x] Tratamento de falhas implementado
 
 ---
 
 ## Atualização de Status
 
-- [ ] Atualização após envio implementada
-- [ ] Estratégia de reprocessamento definida
+- [x] Atualização após envio implementada
+- [x] Estratégia de reprocessamento definida (mantém completed)
 
 ---
 
 ## Integração Conversacional
 
-- [ ] Integração com Router implementada
-- [ ] Gatilhos de lembrete implementados
+- [x] Integração com Router implementada
+- [x] Gatilhos de lembrete implementados (/remind)
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de criação implementado
-- [ ] Log de envio implementado
-- [ ] Log de falha implementado
+- [x] Log de criação implementado
+- [x] Log de envio implementado
+- [x] Log de falha implementado
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Data inválida tratada
-- [ ] Falha de persistência tratada
-- [ ] Falha de envio tratada
+- [x] Data inválida tratada
+- [x] Falha de persistência tratada
+- [x] Falha de envio tratada
 
 ---
 
 ## Testes
 
-- [ ] Testes de criação implementados
-- [ ] Testes de persistência implementados
-- [ ] Testes de scheduler implementados
-- [ ] Testes de envio implementados
+- [x] Testes de criação implementados
+- [x] Testes de persistência implementados
+- [x] Testes de scheduler implementados
+- [x] Testes de envio implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
-- [ ] Lembretes desacoplados do Telegram
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
+- [x] Lembretes desacoplados do Telegram

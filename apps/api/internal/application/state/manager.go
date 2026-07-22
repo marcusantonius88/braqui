@@ -34,6 +34,23 @@ func (m *Manager) Start(ctx context.Context, userID, flow, step string, payload 
 	if err != nil {
 		return nil, fmt.Errorf("marshal payload: %w", err)
 	}
+
+	existing, err := m.repo.FindByUserID(ctx, userID)
+	if err != nil && !errors.Is(err, domain.ErrNotFound) {
+		return nil, fmt.Errorf("find existing state: %w", err)
+	}
+	if existing != nil {
+		existing.Flow = flow
+		existing.Step = step
+		existing.Payload = raw
+		if err := m.repo.Update(ctx, existing); err != nil {
+			m.log.Error("failed to update state", map[string]any{"user_id": userID, "flow": flow, "error": err.Error()})
+			return nil, fmt.Errorf("update state: %w", err)
+		}
+		m.log.Info("flow started (updated)", map[string]any{"user_id": userID, "flow": flow, "step": step})
+		return existing, nil
+	}
+
 	state := &domain.ConversationState{
 		UserID:  userID,
 		Flow:    flow,

@@ -208,7 +208,7 @@ func TestReminderRepository_CRUD(t *testing.T) {
 	}
 
 	dueDate, _ := time.Parse(time.RFC3339, "2026-07-15T10:00:00Z")
-	reminder := &domain.Reminder{PetID: pet.ID, Type: "medication", Description: "antipulga", DueDate: dueDate, RepeatInterval: "30d"}
+	reminder := &domain.Reminder{PetID: pet.ID, Title: "Dar Simparic", Description: "antipulga", DueDate: dueDate, Status: domain.ReminderStatusPending}
 	if err := reminderRepo.Create(ctx, reminder); err != nil {
 		t.Fatalf("create reminder: %v", err)
 	}
@@ -220,8 +220,11 @@ func TestReminderRepository_CRUD(t *testing.T) {
 	if err != nil {
 		t.Fatalf("find by id: %v", err)
 	}
-	if found.Type != "medication" {
-		t.Fatalf("expected medication, got %s", found.Type)
+	if found.Title != "Dar Simparic" {
+		t.Fatalf("expected Dar Simparic, got %s", found.Title)
+	}
+	if found.Status != domain.ReminderStatusPending {
+		t.Fatalf("expected pending, got %s", found.Status)
 	}
 
 	reminders, err := reminderRepo.FindByPetID(ctx, pet.ID)
