@@ -366,94 +366,94 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Campo city definido no domínio
-- [ ] Estrutura de localização criada
-- [ ] Casos de uso de localização criados
+- [x] Campo city definido no domínio (Pet.Location)
+- [x] Estrutura de localização criada (onboarding step)
+- [x] Casos de uso de localização criados (LocationUpdater)
 
 ---
 
 ## Persistência
 
-- [ ] Campo city adicionado à entidade Pet
-- [ ] Migration atualizada
-- [ ] Persistência implementada
+- [x] Campo city adicionado à entidade Pet
+- [x] Migration atualizada (000001 inclui location)
+- [x] Persistência implementada
 
 ---
 
 ## Onboarding
 
-- [ ] Pergunta de cidade implementada
-- [ ] Captura da cidade implementada
-- [ ] Integração com cadastro do pet implementada
+- [x] Pergunta de cidade implementada ("Em qual cidade você mora?")
+- [x] Captura da cidade implementada
+- [x] Integração com cadastro do pet implementada
 
 ---
 
 ## Recuperação
 
-- [ ] Recuperação da cidade implementada
-- [ ] Disponibilização para outros módulos implementada
+- [x] Recuperação da cidade implementada (via pet.Location)
+- [x] Disponibilização para outros módulos implementada
 
 ---
 
 ## Atualização
 
-- [ ] Atualização manual da cidade implementada
-- [ ] Fluxo conversacional de alteração implementado
+- [x] Atualização manual da cidade implementada
+- [x] Fluxo conversacional de alteração implementado (/mudarcidade)
 
 ---
 
 ## Validação
 
-- [ ] Cidade obrigatória no onboarding
-- [ ] Validação básica implementada
-- [ ] Tratamento de cidade inválida implementado
+- [x] Cidade obrigatória no onboarding
+- [x] Validação básica implementada (não vazio)
+- [x] Tratamento de cidade inválida implementado
 
 ---
 
 ## Integração Climática
 
-- [ ] Estrutura preparada para Climate Provider
-- [ ] Cidade disponível para consultas climáticas
-- [ ] Integração futura documentada
+- [x] Estrutura preparada para Climate Provider (PetRepository.UpdateLocation)
+- [x] Cidade disponível para consultas climáticas
+- [x] Integração futura documentada
 
 ---
 
 ## Privacidade
 
-- [ ] Apenas cidade armazenada
-- [ ] Nenhuma coordenada armazenada
-- [ ] Nenhum rastreamento implementado
+- [x] Apenas cidade armazenada
+- [x] Nenhuma coordenada armazenada
+- [x] Nenhum rastreamento implementado
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de cadastro de localização implementado
-- [ ] Log de atualização implementado
-- [ ] Log de falhas implementado
+- [x] Log de cadastro de localização implementado (via Onboarder)
+- [x] Log de atualização implementado (via LocationUpdater)
+- [x] Log de falhas implementado
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Cidade inválida tratada
-- [ ] Falha de atualização tratada
-- [ ] Falha de consulta tratada
+- [x] Cidade inválida tratada (vazio → mensagem amigável)
+- [x] Falha de atualização tratada
+- [x] Falha de consulta tratada
 
 ---
 
 ## Testes
 
-- [ ] Testes de cadastro implementados
-- [ ] Testes de recuperação implementados
-- [ ] Testes de atualização implementados
-- [ ] Testes de validação implementados
+- [x] Testes de cadastro implementados (Onboarder tests)
+- [x] Testes de recuperação implementados (PetRepository tests)
+- [x] Testes de atualização implementados (4 LocationUpdater tests)
+- [x] Testes de validação implementados
 
 ---
 
 ## Qualidade
 
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
-- [ ] Localização desacoplada do provider climático
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
+- [x] Localização desacoplada do provider climático

@@ -95,6 +95,18 @@ func (r *PetRepository) FindByUserID(ctx context.Context, userID string) ([]*dom
 	return result, nil
 }
 
+func (r *PetRepository) UpdateLocation(_ context.Context, petID, city string) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	pet, ok := r.pets[petID]
+	if !ok {
+		return domain.ErrNotFound
+	}
+	pet.Location = city
+	pet.UpdatedAt = time.Now()
+	return nil
+}
+
 type EventRepository struct {
 	mu     sync.Mutex
 	events map[string]*domain.Event

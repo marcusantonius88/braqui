@@ -63,3 +63,13 @@ func (r *PetRepository) FindByUserID(ctx context.Context, userID string) ([]*dom
 	}
 	return pets, nil
 }
+
+func (r *PetRepository) UpdateLocation(ctx context.Context, petID, city string) error {
+	_, err := r.pool.Exec(ctx,
+		`UPDATE pets SET location = $1, updated_at = NOW() WHERE id = $2`,
+		city, petID)
+	if err != nil {
+		return fmt.Errorf("update location: %w", err)
+	}
+	return nil
+}

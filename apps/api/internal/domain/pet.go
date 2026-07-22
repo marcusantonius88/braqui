@@ -21,4 +21,5 @@ type PetRepository interface {
 	Create(ctx context.Context, pet *Pet) error
 	FindByID(ctx context.Context, id string) (*Pet, error)
 	FindByUserID(ctx context.Context, userID string) ([]*Pet, error)
+	UpdateLocation(ctx context.Context, petID, city string) error
 }
