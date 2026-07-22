@@ -400,108 +400,108 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Estrutura `/insights` criada
-- [ ] InsightService criado
-- [ ] Casos de uso de insights criados
+- [x] Estrutura `/insights` criada (`internal/insights/`)
+- [x] InsightService criado (`Service` com `Generate`)
+- [x] Casos de uso de insights criados
 
 ---
 
 ## Modelo
 
-- [ ] Estrutura Insight criada
-- [ ] Campo Type implementado
-- [ ] Campo Message implementado
-- [ ] Campo GeneratedAt implementado
+- [x] Estrutura Insight criada (Type, Message, GeneratedAt)
+- [x] Campo Type implementado
+- [x] Campo Message implementado
+- [x] Campo GeneratedAt implementado
 
 ---
 
 ## Integração com Histórico
 
-- [ ] Integração com EventRepository implementada
-- [ ] Consulta de eventos implementada
-- [ ] Filtragem por período implementada
+- [x] Integração com EventRepository implementada
+- [x] Consulta de eventos implementada (FindByPetID)
+- [x] Filtragem por período implementada (in-memory via Timestamp)
 
 ---
 
 ## Insight de Vômito
 
-- [ ] Regra de >= 3 eventos em 30 dias implementada
-- [ ] Mensagem amigável implementada
+- [x] Regra de >= 3 eventos em 30 dias implementada
+- [x] Mensagem amigável implementada ("{pet} apresentou {N} episódios de vômito nos últimos 30 dias.")
 
 ---
 
 ## Insight de Coceira
 
-- [ ] Regra de >= 3 eventos em 30 dias implementada
-- [ ] Mensagem amigável implementada
+- [x] Regra de >= 3 eventos em 30 dias implementada
+- [x] Mensagem amigável implementada ("{pet} apresentou {N} episódios de coceira nos últimos 30 dias.")
 
 ---
 
 ## Insight de Ofegância
 
-- [ ] Regra de >= 5 eventos em 15 dias implementada
-- [ ] Mensagem amigável implementada
+- [x] Regra de >= 5 eventos em 15 dias implementada
+- [x] Mensagem amigável implementada ("{pet} apresentou {N} registros de ofegância nos últimos 15 dias.")
 
 ---
 
 ## Insight de Medicação
 
-- [ ] Regra de ausência de medicação em 60 dias implementada
-- [ ] Mensagem amigável implementada
+- [x] Regra de ausência de medicação em 60 dias implementada
+- [x] Mensagem amigável implementada ("Não encontrei registros recentes de medicação para {pet}.")
 
 ---
 
 ## Geração
 
-- [ ] Geração sob demanda implementada
-- [ ] Agregação de múltiplos insights implementada
-- [ ] Ordenação de insights implementada
+- [x] Geração sob demanda implementada (via /insights)
+- [x] Agregação de múltiplos insights implementada
+- [x] Ordenação de insights implementada (na ordem definida em rules)
 
 ---
 
 ## Fluxo Conversacional
 
-- [ ] Comando de insights implementado
-- [ ] Integração com Router implementada
+- [x] Comando de insights implementado (/insights)
+- [x] Integração com Router implementada
 
 ---
 
 ## Respostas
 
-- [ ] Template de resposta criado
-- [ ] Formatação amigável implementada
+- [x] Template de resposta criado ("📊 Insights do {pet}\n\n• {insight}" com \n\n entre bullets)
+- [x] Formatação amigável implementada
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Cenário sem eventos implementado
-- [ ] Cenário sem insights implementado
-- [ ] Falhas de processamento tratadas
+- [x] Cenário sem eventos implementado ("Ainda não há dados suficientes para gerar insights.")
+- [x] Cenário sem insights implementado ("Não encontrei padrões relevantes no momento.")
+- [x] Falhas de processamento tratadas
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de geração implementado
-- [ ] Log de quantidade de insights implementado
-- [ ] Log de falhas implementado
+- [x] Log de geração implementado
+- [x] Log de quantidade de insights implementado
+- [x] Log de falhas implementado
 
 ---
 
 ## Testes
 
-- [ ] Testes de regras implementados
-- [ ] Testes de geração implementados
-- [ ] Testes de agregação implementados
-- [ ] Testes de cenários vazios implementados
+- [x] Testes de regras implementados (avaliação individual de cada regra)
+- [x] Testes de geração implementados (vômito, coceira, ofegância, medicação)
+- [x] Testes de agregação implementados (múltiplos insights)
+- [x] Testes de cenários vazios implementados (sem pet, sem eventos, sem insights, eventos antigos)
 
 ---
 
 ## Qualidade
 
-- [ ] Regras desacopladas da persistência
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
-- [ ] Insights explicáveis e auditáveis
+- [x] Regras desacopladas da persistência (regras em rules.go, eventos via interface)
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
+- [x] Insights explicáveis e auditáveis (regras explícitas, sem IA/ML)
