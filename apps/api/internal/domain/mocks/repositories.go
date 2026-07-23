@@ -95,6 +95,19 @@ func (r *PetRepository) FindByUserID(ctx context.Context, userID string) ([]*dom
 	return result, nil
 }
 
+func (r *PetRepository) FindAll(_ context.Context) ([]*domain.Pet, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	var result []*domain.Pet
+	for _, p := range r.pets {
+		result = append(result, p)
+	}
+	if result == nil {
+		return []*domain.Pet{}, nil
+	}
+	return result, nil
+}
+
 func (r *PetRepository) FindAllWithLocation(_ context.Context) ([]*domain.Pet, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()

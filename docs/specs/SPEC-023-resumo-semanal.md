@@ -414,110 +414,110 @@ Fora do MVP:
 
 ## Estrutura Base
 
-- [ ] Estrutura `/summary` criada
-- [ ] SummaryService criado
-- [ ] WeeklySummaryJob criado
+- [x] Estrutura `/summary` criada (`internal/summary/`)
+- [x] SummaryService criado (`Service.GenerateAndSend`)
+- [x] WeeklySummaryJob criado (real, com `NewWeeklySummaryJob(svc, log)`)
 
 ---
 
 ## Modelo
 
-- [ ] Estrutura WeeklySummary criada
-- [ ] Campo TotalEvents implementado
-- [ ] Campo StartDate implementado
-- [ ] Campo EndDate implementado
+- [x] Estrutura WeeklySummary criada (modelo implícito em `formatSummary`)
+- [x] Campo TotalEvents implementado (contagem agregada)
+- [x] Campo StartDate implementado (7 dias atrás via `time.Now().AddDate(0,0,-7)`)
+- [x] Campo EndDate implementado (`time.Now()`)
 
 ---
 
 ## Integração com Histórico
 
-- [ ] Integração com EventRepository implementada
-- [ ] Consulta dos últimos 7 dias implementada
-- [ ] Recuperação de eventos por pet implementada
+- [x] Integração com EventRepository implementada
+- [x] Consulta dos últimos 7 dias implementada (filtro in-memory via `Timestamp`)
+- [x] Recuperação de eventos por pet implementada
 
 ---
 
 ## Agregação
 
-- [ ] Contagem total de eventos implementada
-- [ ] Contagem de vômitos implementada
-- [ ] Contagem de coceiras implementada
-- [ ] Contagem de ofegância implementada
-- [ ] Contagem de medicações implementada
-- [ ] Contagem de consultas implementada
+- [x] Contagem total de eventos implementada
+- [x] Contagem de vômitos implementada
+- [x] Contagem de coceiras implementada
+- [x] Contagem de ofegância implementada
+- [x] Contagem de medicações implementada
+- [x] Contagem de consultas implementada (vet_visit)
 
 ---
 
 ## Formatação
 
-- [ ] Template de resumo criado
-- [ ] Mensagem amigável implementada
-- [ ] Formatação textual implementada
+- [x] Template de resumo criado (`📊 Resumo semanal do {pet}\n\n• {total}\n\n• {cat1}\n• {cat2}\n\n{footer}`)
+- [x] Mensagem amigável implementada (singular/plural corretos, labels em PT-BR)
+- [x] Formatação textual implementada
 
 ---
 
 ## Scheduler
 
-- [ ] Integração com WeeklySummaryJob implementada
-- [ ] Execução semanal implementada
-- [ ] Registro do job implementado
+- [x] Integração com WeeklySummaryJob implementada
+- [x] Execução semanal implementada (frequência `scheduler.Weekly`)
+- [x] Registro do job implementado
 
 ---
 
 ## Telegram
 
-- [ ] Envio do resumo implementado
-- [ ] Integração com TelegramGateway implementada
-- [ ] Tratamento de falha de envio implementado
+- [x] Envio do resumo implementado
+- [x] Integração com TelegramGateway implementada
+- [x] Tratamento de falha de envio implementado (log + continue)
 
 ---
 
 ## Regras de Negócio
 
-- [ ] Cenário sem eventos implementado
-- [ ] Cenário com eventos implementado
-- [ ] Usuário sem pet tratado
+- [x] Cenário sem eventos implementado ("Nenhum evento foi registrado esta semana para o {pet}.")
+- [x] Cenário com eventos implementado (resumo consolidado)
+- [x] Usuário sem pet tratado (FindAll retorna vazio → 0 mensagens)
 
 ---
 
 ## Integração Futura
 
-- [ ] Estrutura preparada para Insights
-- [ ] Estrutura preparada para IA futura
+- [x] Estrutura preparada para Insights (SummaryService via interface SummaryService no scheduler)
+- [x] Estrutura preparada para IA futura (serviço desacoplado via interface)
 
 ---
 
 ## Observabilidade
 
-- [ ] Log de resumo gerado implementado
-- [ ] Log de quantidade de eventos implementado
-- [ ] Log de envio implementado
-- [ ] Log de falhas implementado
+- [x] Log de resumo gerado implementado
+- [x] Log de quantidade de eventos implementado
+- [x] Log de envio implementado
+- [x] Log de falhas implementado
 
 ---
 
 ## Tratamento de Erros
 
-- [ ] Falha de consulta tratada
-- [ ] Falha de envio tratada
-- [ ] Recuperação operacional implementada
+- [x] Falha de consulta tratada (log + continue)
+- [x] Falha de envio tratada (log + continue)
+- [x] Recuperação operacional implementada (panic recovery do scheduler)
 
 ---
 
 ## Testes
 
-- [ ] Testes de agregação implementados
-- [ ] Testes de formatação implementados
-- [ ] Testes de scheduler implementados
-- [ ] Testes de envio implementados
-- [ ] Testes de cenários sem eventos implementados
+- [x] Testes de agregação implementados (contagem por tipo)
+- [x] Testes de formatação implementados (singular/plural, estrutura do template)
+- [x] Testes de scheduler implementados (job executa sem erro)
+- [x] Testes de envio implementados (mensagens enviadas corretamente)
+- [x] Testes de cenários sem eventos implementados
 
 ---
 
 ## Qualidade
 
-- [ ] SummaryService desacoplado da persistência
-- [ ] Estrutura compatível com monorepo
-- [ ] Estrutura compatível com SDD
-- [ ] Estrutura compatível com IA-assisted development
-- [ ] Base preparada para evolução futura
+- [x] SummaryService desacoplado da persistência (interfaces locais)
+- [x] Estrutura compatível com monorepo
+- [x] Estrutura compatível com SDD
+- [x] Estrutura compatível com IA-assisted development
+- [x] Base preparada para evolução futura

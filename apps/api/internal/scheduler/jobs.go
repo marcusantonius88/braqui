@@ -75,10 +75,27 @@ func (j *ReminderJob) Execute(ctx context.Context) error {
 	return nil
 }
 
-type WeeklySummaryJob struct{}
+type SummaryService interface {
+	GenerateAndSend(ctx context.Context) error
+}
+
+type WeeklySummaryJob struct {
+	svc SummaryService
+	log Logger
+}
+
+func NewWeeklySummaryJob(svc SummaryService, log Logger) *WeeklySummaryJob {
+	return &WeeklySummaryJob{svc: svc, log: log}
+}
 
 func (j *WeeklySummaryJob) Name() string { return "weekly_summary" }
-func (j *WeeklySummaryJob) Execute(_ context.Context) error {
+
+func (j *WeeklySummaryJob) Execute(ctx context.Context) error {
+	j.log.Info("weekly summary job started", nil)
+	if err := j.svc.GenerateAndSend(ctx); err != nil {
+		return fmt.Errorf("weekly summary: %w", err)
+	}
+	j.log.Info("weekly summary job finished", nil)
 	return nil
 }
 

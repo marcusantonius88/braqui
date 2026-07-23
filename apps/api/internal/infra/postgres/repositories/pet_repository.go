@@ -64,6 +64,29 @@ func (r *PetRepository) FindByUserID(ctx context.Context, userID string) ([]*dom
 	return pets, nil
 }
 
+func (r *PetRepository) FindAll(ctx context.Context) ([]*domain.Pet, error) {
+	rows, err := r.pool.Query(ctx,
+		`SELECT id, user_id, name, breed, age, weight, location, created_at, updated_at
+		 FROM pets ORDER BY created_at`)
+	if err != nil {
+		return nil, fmt.Errorf("find all pets: %w", err)
+	}
+	defer rows.Close()
+
+	var pets []*domain.Pet
+	for rows.Next() {
+		pet := &domain.Pet{}
+		if err := rows.Scan(&pet.ID, &pet.UserID, &pet.Name, &pet.Breed, &pet.Age, &pet.Weight, &pet.Location, &pet.CreatedAt, &pet.UpdatedAt); err != nil {
+			return nil, fmt.Errorf("scan pet: %w", err)
+		}
+		pets = append(pets, pet)
+	}
+	if pets == nil {
+		return []*domain.Pet{}, nil
+	}
+	return pets, nil
+}
+
 func (r *PetRepository) FindAllWithLocation(ctx context.Context) ([]*domain.Pet, error) {
 	rows, err := r.pool.Query(ctx,
 		`SELECT id, user_id, name, breed, age, weight, location, created_at, updated_at
