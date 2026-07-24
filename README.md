@@ -130,7 +130,7 @@ Este projeto foi construído utilizando práticas modernas de **AI-Assisted Soft
 |Categoria|Ferramenta|
 |---|---|
 |IDE/Agent|OpenCode|
-|Modelo Principal|Claude Sonnet 4|
+|Modelo Principal|DeepSeek V4 Flash (via OpenCode)|
 |Apoio Estratégico|ChatGPT (GPT-5.5)|
 |Metodologia|Spec-Driven Development (SDD)|
 
