@@ -2,9 +2,7 @@
 
 ![Go](https://img.shields.io/badge/Go-Language-blue) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791) ![Docker](https://img.shields.io/badge/Docker-Infrastructure-2496ED) ![GitHub](https://img.shields.io/badge/GitHub-Repository-181717) ![Telegram](https://img.shields.io/badge/Telegram-Integration-0088cc) ![OpenCode](https://img.shields.io/badge/OpenCode-AI-white) ![OpenWeather](https://img.shields.io/badge/OpenWeather-Integration-orange) ![Event-Driven](https://img.shields.io/badge/Event--Driven-Architecture-brightgreen) ![Conversational](https://img.shields.io/badge/Conversational-Interface-blueviolet) ![Modular](https://img.shields.io/badge/Modular-Architecture-success)
 
-# 🐶 Braqui
-
-**Saúde inteligente para cães braquicefálicos.**
+# 🐶 Braqui - Saúde Inteligente Para Cães Braquicefálicos
 
 Braqui é uma plataforma focada no acompanhamento da saúde e rotina de cães braquicefálicos, como Buldogue Francês, Pug, Shih Tzu, Boston Terrier, Bulldog Inglês e raças similares.
 
